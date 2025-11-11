@@ -5,8 +5,8 @@ import './Home.css'
 const Home = () => {
   return (
     <div className='text-center  w-50 mx-auto'>
-      <h1 className='p-2'>Room Locator 2.0</h1>
-      <small>Powered by J-Tech</small>
+      <h1 className='m-4'>Room Locator 2.0</h1>
+      <small >Powered by J-Tech</small>
       <div className='frame mx-auto m-4'>
         <HomeBtn unit={"P0083 CVICU"} />
         <HomeBtn unit={"P0080 MRI"} />
