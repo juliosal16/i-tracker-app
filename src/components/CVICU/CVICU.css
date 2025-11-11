@@ -1,0 +1,14 @@
+.cardStyle{
+  background-color: #3cdf82;
+  color: black;
+}
+
+   .inputStyle {
+        box-shadow: 10px 10px 10px rgba(251, 251, 251, 0.16);
+        /* width: 400px; */
+        height: 40px;
+        border: none;
+        border-radius: 20px;
+        padding-left: 10px;
+        /* margin-left: 30px auto; */
+      }
