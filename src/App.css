@@ -1,0 +1,24 @@
+/* .myBtn{
+  color: black;
+} */
+
+.myBtn {
+  background-color: #00e082;
+  /* background-color: red; */
+  color: white;
+        border: none;
+        border-radius: 2px;
+        padding: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: opacity 0.15s;
+        vertical-align: top;
+      }
+
+      .myBtn:hover {
+        opacity: 0.8;
+      }
+
+      .myBtn:active {
+        opacity: 0.5;
+      }

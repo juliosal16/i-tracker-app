@@ -1,5 +1,6 @@
 import React from 'react'
-import HomeBtn from './HomeBtn'
+import HomeBtn from '../HomeBtn/HomeBtn'
+import './Home.css'
 
 const Home = () => {
   return (
