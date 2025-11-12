@@ -9,10 +9,6 @@ import { use } from 'react'
 
 const Home = () => {
 
-  // cvicuData.map((data, i) => {
-  //   return data
-  // })
-
   return (
     <div className='text-center  w-50 mx-auto'>
       <h2 className='mt-4 w-100'>Room Locator 2.0</h2>
