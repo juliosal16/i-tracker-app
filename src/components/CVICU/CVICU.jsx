@@ -45,7 +45,7 @@ const CVICU = () => {
                 <h5 className="card-title">{item.name}</h5>
                 <h6 className="card-subtitle mb-2 text-body-secondary">Sequence: {item.sequence}</h6>
                 <h6 className="card-subtitle mb-2 text-body-secondary">REF: {item.refNum}</h6>
-                <button className="btn btn-light mt-3 d-block mx-auto w-75" onClick={() => console.log(i)}>View More</button>
+                {/* <button className="btn btn-light mt-3 d-block mx-auto w-75" onClick={() => console.log(i)}>View More</button> */}
               </div>
             </div>
           ))
