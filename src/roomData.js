@@ -1,650 +1,2497 @@
 
-const cvicuData = [
-  { refNum: "38080C", name: "BAG HYPERINFALATION GREEN 5.0", sequence: "F845CD" },
-  { refNum: "6791", name: "3M REMOVABLE ADHESIVE TAPE", sequence: "H115CD" },
-  { refNum: "25-3001", name: "ADAPTER BAG ACCESS FREE", sequence: "G38810" },
-  { refNum: "R5311B", name: "ADAPTER BAG ACCESS FREE", sequence: "H15010" },
-  { refNum: "R1033", name: "GUIDE, WIRE, STRAIGHT TIP, HYDROCORTONE", sequence: "D12010" },
-  { refNum: "2830-12", name: "AIRWAY LMA DISPOSABLE SIZE 4", sequence: "D125CD" },
-  { refNum: "DYNO-0160", name: "SANI-HAND HAND RUB", sequence: "E385CD" },
-  { refNum: "8528", name: "TOILET KIT PERI BOTTLE TRAY", sequence: "B575CD" },
-  { refNum: "13575-1", name: "TOWEL DISPOSABLE REINFORCED", sequence: "H14810" },
-  { refNum: "8502", name: "TOWEL BATH BLUE DISPOSABLE", sequence: "B570CD" },
-  { refNum: "9016P-V00.005", name: "URINE BAG WITH ANTI-REFLUX", sequence: "B585CD" },
-  { refNum: "4509", name: "DRAIN CHEST SYSTEM ADULT", sequence: "D340CD" },
-  { refNum: "12-636-02", name: "BAG URINE 1900ML T-VALVE", sequence: "E615CD" },
-  { refNum: "3051", name: "TUBING VACUUM DISPOSABLE", sequence: "G085CD" },
-  { refNum: "800-081610", name: "20MM TAPE DRAIN HOOKING SLEEVE", sequence: "H135CD" },
-  { refNum: "1234", name: "OXYGEN MASK NONREBREATHER ADULT", sequence: "D310CD" },
-  { refNum: "N00214204", name: "2MM SPLIT BALLAST", sequence: "H10520" },
-  { refNum: "26002", name: "BLANKET DISPOSABLE LIGHT WEIGHT", sequence: "B390CD" },
-  { refNum: "K459", name: "BAG HYPERINFALATION", sequence: "G22510" },
-  { refNum: "072048", name: "TUBE FEEDING ADAPTER", sequence: "B545CD" },
-  { refNum: "800-08161", name: "20MM TAPE DRAIN HOOKING SLEEVE", sequence: "G055CD" },
-  { refNum: "1487", name: "4.0 PROPALENE W/CV TEFLON PADS", sequence: "D29510" },
-  { refNum: "6084", name: "MEDICATION ADDITIVE VIAL", sequence: "B490CD" },
-  { refNum: "N00171649", name: "6-PORTMANIFOLD W/MANIFOLD", sequence: "H165CD" },
-  { refNum: "R1403", name: "10ML SYRINGE W/O NEEDLE", sequence: "E475CD" },
-  { refNum: "7460", name: "IV SPIKE WITH TUBE AND CLAMP", sequence: "B425CD" },
-  { refNum: "N00010838", name: "ACCESSORY SPLIT", sequence: "G125CD" },
-  { refNum: "4597", name: "ACCESSORY SPLIT", sequence: "D690CD" },
-  { refNum: "3947", name: "IV TUBING ADMIN SET", sequence: "B420CD" },
-  { refNum: "ADAPTER", name: "ADAPTER UNIVERSAL", sequence: "G080CD" },
-  { refNum: "W5261", name: "ADAPTER UNIVERSAL", sequence: "G115CD" },
-  { refNum: "2830-13", name: "ADHESIVE REMOVAL WIPE", sequence: "E670CD" },
-  { refNum: "R513", name: "ADHESIVE REMOVAL WIPE", sequence: "H340CD" },
-  { refNum: "3972", name: "TUBE FEEDING BAG 1000ML", sequence: "B550CD" },
-  { refNum: "DYNO-0607", name: "ALCOHOL PAD", sequence: "H10010" },
-  { refNum: "4509", name: "DRAIN CHEST SYSTEM ADULT", sequence: "D340CD" },
-  { refNum: "171120002", name: "NEEDLE STICK SAFE", sequence: "H205CD" },
-  { refNum: "25990", name: "ALLEYN OIL BASE OINTMENT", sequence: "H175CD" },
-  { refNum: "DYNO-0604", name: "ARM BOARD LARGE", sequence: "G150CD" },
-  { refNum: "R0940", name: "ARM BOARD XTRA LG", sequence: "H235CD" },
-  { refNum: "1665", name: "ARTERY LINE SETUP", sequence: "H18510" },
-  { refNum: "4605", name: "ARTERIAL CATHETER KIT", sequence: "H190CD" },
-  { refNum: "N00049445", name: "ANTIREFLUX VALVE", sequence: "G388CD" },
-  { refNum: "8706", name: "AQUAGEL BLUE TOP 67%GLYCERIN", sequence: "H170CD" },
-  { refNum: "4603", name: "ARTERIAL CATHETER KIT", sequence: "H19010" },
-  { refNum: "2225", name: "INFUSION PUMP SET", sequence: "D330CD" },
-  { refNum: "7009", name: "CATHETER FEMORAL ARTERIAL", sequence: "D325CD" },
-  { refNum: "30500", name: "CATHETER ARTERIAL INSERTION KIT", sequence: "G385CD" },
-  { refNum: "3590", name: "ADAPTER BAG ACCESS FREE", sequence: "A19510" },
-  { refNum: "4203", name: "ASHMORE ARTERIAL SWITH W/TIPPER", sequence: "H200CD" },
-  { refNum: "10090", name: "ARM BOARD ADULT", sequence: "G155CD" },
-  { refNum: "10191", name: "ASSISTING HANDS GRIPPER", sequence: "D39510" },
-  { refNum: "DYNO-0605", name: "ARM BOARD XTRA LG", sequence: "G145CD" },
-  { refNum: "10008", name: "AXILLARY ROLL LARGE", sequence: "H20510" },
-  { refNum: "30490", name: "ADAPTER BAG ACCESS FREE", sequence: "A19010" },
-  { refNum: "N00067667", name: "ADAPTER BAG ACCESS FREE", sequence: "D160CD" },
-  { refNum: "R5311", name: "BAG URINE 1900ML T-VALVE", sequence: "H150CD" },
-  { refNum: "3004", name: "BAG DRAIN DISPOSABLE 1000ML", sequence: "D225CD" },
-  { refNum: "6699", name: "BAG MEDICATION", sequence: "E53044" },
-  { refNum: "3337", name: "BAG URINE 1900ML T-VALVE", sequence: "E730CD" },
-  { refNum: "N00000021", name: "BALLOON PEDIATRIC 10-14MM", sequence: "D435CD" },
-  { refNum: "43.7432", name: "TUBE FEEDING BAG 1000ML", sequence: "E28510" },
-  { refNum: "1158", name: "BAG DRAIN DISPOSABLE 1000ML", sequence: "G380CD" },
-  { refNum: "N00181507", name: "BAND X-RAY TUBE & ARM WRAP", sequence: "D475CD" },
-  { refNum: "309-37-PUR", name: "BAND X-RAY TUBE & ARM WRAP", sequence: "A37610" },
-  { refNum: "6571", name: "BAND WIDE ADHESIVE CONTROL", sequence: "A405CD" },
-  { refNum: "5995", name: "BANDAGE ELASTIC WRAP", sequence: "A68510" },
-  { refNum: "7400", name: "BANDAGE ELASTIC WRAP", sequence: "H180CD" },
-  { refNum: "10411", name: "BANDAGE ELASTIC WRAP", sequence: "G265CD" },
-  { refNum: "10360", name: "BANDAGE ELASTIC WRAP", sequence: "D285CD" },
-  { refNum: "DYNO-0822", name: "BANDAGE ELASTIC WRAP", sequence: "B59510" },
-  { refNum: "R6134", name: "BARRIER WIPES NON STING", sequence: "B095CD" },
-  { refNum: "2580", name: "BAG URINE 1900ML T-VALVE", sequence: "D015CD" },
-  { refNum: "DYNO-09347", name: "BASIN BATH HAIR WASH SHAMPOO", sequence: "E015CD" },
-  { refNum: "R6002", name: "BASIN BATH HAIR WASH SHAMPOO", sequence: "D005CD" },
-  { refNum: "3600", name: "BATTERY AA", sequence: "H015CD" },
-  { refNum: "PC1500", name: "BATTERY AA", sequence: "B40510" },
-  { refNum: "R6012", name: "BED PAD BLUE 30 X 30", sequence: "D010CD" },
-  { refNum: "TNR0031", name: "BED PAD BLUE 30 X 30", sequence: "E005CD" },
-  { refNum: "PC1300", name: "BATTERY D", sequence: "B405CD" },
-  { refNum: "PC1200", name: "BATTERY C", sequence: "B400CD" },
-  { refNum: "26002", name: "BED BLANKET LIGHT WEIGHT", sequence: "F68510" },
-  { refNum: "N00023412", name: "BED BLANKET LIGHT WEIGHT", sequence: "D230CD" },
-  { refNum: "DYNO-017", name: "BED PAN FRACTURE", sequence: "H745CD" },
-  { refNum: "13515", name: "BELLADONNA PATCHES", sequence: "H730CD" },
-  { refNum: "DYNO-1382", name: "BELT PADS WAISTBAND", sequence: "A730CD" },
-  { refNum: "116480", name: "BELLADONNA PATCHES", sequence: "H735CD" },
-  { refNum: "HCP3066", name: "BLANKET DISPOSABLE MEDIUM WT", sequence: "D495CD" },
-  { refNum: "R3001", name: "BLANKET DISPOSABLE MEDIUM WT", sequence: "B410CD" },
-  { refNum: "4505", name: "BLUNT FILL NEEDLE 18GA X 1 1/2", sequence: "H810CD" },
-  { refNum: "2626", name: "BLUNT FILL NEEDLE 18GA X 1 1/2", sequence: "G480CD" },
-  { refNum: "876", name: "BNDG COPPER W/SPONGE/CLP", sequence: "H800CD" },
-  { refNum: "800", name: "BNDG COPPER W/SPONGE/CLP", sequence: "G490CD" },
-  { refNum: "0770", name: "BOVIE PEN", sequence: "H805CD" },
-  { refNum: "W5810", name: "BONDE WAX", sequence: "G395CD" },
-  { refNum: "R6021", name: "BOWL DISPOSABLE", sequence: "E030CD" },
-  { refNum: "8705", name: "BROSE RADIAL PAQ", sequence: "A16510" },
-  { refNum: "7405", name: "BULB SYRINGE EAR/IRRIGATION", sequence: "A16010" },
-  { refNum: "171120004", name: "BREASTFEEDING NIPPLE SHIELDS", sequence: "H80510" },
-  { refNum: "8708", name: "BROSE RADIAL PAQ", sequence: "A165CD" },
-  { refNum: "9916", name: "BUTTERFLY NEEDLE 23G", sequence: "B115CD" },
-  { refNum: "9924", name: "BUTTERFLY NEEDLE 25G", sequence: "H790CD" },
-  { refNum: "DYNO-020", name: "BUTTERFLY NEEDLE 23G", sequence: "H795CD" },
-  { refNum: "7009", name: "BULB SYRINGE", sequence: "H510CD" },
-  { refNum: "2500", name: "BUTTERFLY NEEDLE 23G", sequence: "H785CD" },
-  { refNum: "8965", name: "BUTTERFLY NEEDLE 25G", sequence: "A815CD" },
-  { refNum: "9916", name: "BUTTERFLY NEEDLE 23G", sequence: "H780CD" },
-  { refNum: "DYNO-003", name: "CATHETER FOLEY SILICONE", sequence: "E16510" },
-  { refNum: "DYNO-0248", name: "CATHETER FOLEY SILICONE", sequence: "D16510" },
-  { refNum: "DYNO-0205", name: "CATHETER FOLEY SILICONE", sequence: "E160CD" },
-  { refNum: "DYNO-0204", name: "CATHETER FOLEY SILICONE", sequence: "D16010" },
-  { refNum: "N00010838", name: "CATH HLD PEDIATRIC", sequence: "G125CD" },
-  { refNum: "DYNO-10723", name: "CATHETER FOLEY SILICONE", sequence: "E16010" },
-  { refNum: "8707", name: "CATHETER FOLEY SILICONE", sequence: "G120CD" },
-  { refNum: "9916", name: "CATHETER FOLEY SILICONE", sequence: "E165CD" },
-  { refNum: "84124", name: "CATHETER FOLEY SILICONE", sequence: "G130CD" },
-  { refNum: "7300", name: "CATHETER FOLEY SILICONE", sequence: "E170CD" },
-  { refNum: "DYNO-001", name: "CATHETER FOLEY SILICONE", sequence: "G12010" },
-  { refNum: "M00431307", name: "CATHETER FOLEY SILICONE", sequence: "D165CD" },
-  { refNum: "5300", name: "CATHETER FOLEY SILICONE", sequence: "B50510" },
-  { refNum: "9916", name: "CATHETER FOLEY SILICONE", sequence: "G135CD" },
-  { refNum: "3000", name: "CATHETER FOLEY SILICONE", sequence: "E17010" },
-  { refNum: "7300", name: "CATHETER FOLEY SILICONE", sequence: "H765CD" },
-  { refNum: "MC100", name: "CHG CLOTH", sequence: "D295CD" },
-  { refNum: "MC100", name: "CHG CLOTH", sequence: "G170CD" },
-  { refNum: "MC100", name: "CHG CLOTH", sequence: "D300CD" },
-  { refNum: "300", name: "CONNECTOR SUCTION TUBE", sequence: "F36010" },
-  { refNum: "R1033", name: "CONNECTOR SUCTION TUBE", sequence: "D12010" },
-  { refNum: "300", name: "CONNECTOR SUCTION TUBE", sequence: "F36510" },
-  { refNum: "02C225", name: "COOK GUIDEWIRE", sequence: "G32510" },
-  { refNum: "300", name: "COOK GUIDEWIRE", sequence: "D09510" },
-  { refNum: "F367", name: "CRITIC-AID SKIN MOIST WIPE", sequence: "B65010" },
-  { refNum: "F368", name: "CRITIC-AID SKIN MOIST WIPE", sequence: "B65510" },
-  { refNum: "M0385T010P", name: "CRITIC-AID SKIN MOIST WIPE", sequence: "A18510" },
-  { refNum: "M0385T010HP", name: "CRITIC-AID SKIN MOIST WIPE", sequence: "A185CD" },
-  { refNum: "M0385T001P", name: "CRITIC-AID SKIN MOIST WIPE", sequence: "A190CD" },
-  { refNum: "M0385T001HP", name: "CRITIC-AID SKIN MOIST WIPE", sequence: "A19010" },
-  { refNum: "DYNO-003", name: "CVC REDRESS KIT", sequence: "D16510" },
-  { refNum: "CUR051590", name: "CVC REDRESS KIT", sequence: "B535CD" },
-  { refNum: "7460", name: "CVC REDRESS KIT", sequence: "B425CD" },
-  { refNum: "G58907", name: "CVC REDRESS KIT", sequence: "G585CD" },
-  { refNum: "7530", name: "CVC REDRESS KIT", sequence: "H400CD" },
-  { refRef: "5805450004", name: "CVC INSERTION PACK", sequence: "G055CD" },
-  { refNum: "1000", name: "CVC INSERTION PACK", sequence: "B510CD" },
-  { refNum: "2020", name: "CVC INSERTION PACK", sequence: "H17510" },
-  { refNum: "D200", name: "CVC INSERTION PACK", sequence: "D375CD" },
-  { refNum: "1487", name: "DIALYSIS PRIMARY SET", sequence: "D29510" },
-  { refNum: "0620161A", name: "DIALYSIS PRIMARY SET", sequence: "C625CD" },
-  { refNum: "DYNO-0628", name: "DIALYSIS PRIMARY SET", sequence: "G265CD" },
-  { refNum: "1487", name: "DIALYSIS PRIMARY SET", sequence: "H265CD" },
-  { refNum: "82843", name: "DIALYSIS PRIMARY SET", sequence: "B405CD" },
-  { refNum: "3680", name: "DIALYSIS PRIMARY SET", sequence: "H015CD" },
-  { refNum: "10411", name: "DIAPER INFANT SIZE 1", sequence: "G265CD" },
-  { refNum: "74950", name: "DIAPER INFANT SIZE 2", sequence: "B415CD" },
-  { refNum: "76300", name: "DIAPER INFANT SIZE 3", sequence: "E735CD" },
-  { refNum: "4597", name: "DIAPER INFANT SIZE 4", sequence: "D690CD" },
-  { refNum: "3947", name: "DIAPER INFANT SIZE 5", sequence: "B420CD" },
-  { refNum: "W5261", name: "DIAPER INFANT SIZE 6", sequence: "G115CD" },
-  { refNum: "1.0069E+13", name: "DIAPER INFANT SIZE 7", sequence: "B400CD" },
-  { refNum: "5C4466P", name: "DISCONNECT CAP", sequence: "G46510" },
-  { refNum: "M899", name: "DISCONNECT CAP", sequence: "G45010" },
-  { refNum: "1250", name: "DRAIN KIT SHORTER", sequence: "H41010" },
-  { refNum: "DYNO-0412", name: "DRAIN KIT SHORTER", sequence: "G450CD" },
-  { refNum: "N00258052", name: "DRAIN KIT SHORTER", sequence: "H71510" },
-  { refNum: "M00010995", name: "DRAIN KIT SHORTER", sequence: "G450CD" },
-  { refNum: "CUR0253180", name: "DRESSING NON ADHERENT", sequence: "H53010" },
-  { refNum: "9916", name: "DRESSING NON ADHERENT", sequence: "E165CD" },
-  { refNum: "4638", name: "DRESSING NON ADHERENT", sequence: "B46510" },
-  { refNum: "M0385T0710", name: "DRESSING NON ADHERENT", sequence: "A18010" },
-  { refNum: "71-8004", name: "DRESSING NON ADHERENT", sequence: "B015CD" },
-  { refNum: "DYNO-003", name: "DRESSING NON ADHERENT", sequence: "E16510" },
-  { refNum: "1603-003", name: "DRESSING NON ADHERENT", sequence: "A19510" },
-  { refNum: "DYNO-003", name: "DRESSING NON ADHERENT", sequence: "G12010" },
-  { refNum: "DYNO-06087", name: "DRESSING NON ADHERENT", sequence: "A21530" },
-  { refNum: "DYNO-003", name: "DRESSING NON ADHERENT", sequence: "E16510" },
-  { refNum: "TBN0201", name: "DRESSING NON ADHERENT", sequence: "B21510" },
-  { refNum: "1000", name: "DRESSING NON ADHERENT", sequence: "B510CD" },
-  { refNum: "8645", name: "DRESSING NON ADHERENT", sequence: "F50010" },
-  { refNum: "1000", name: "EXT SET 15 INCH", sequence: "C125CD" },
-  { refNum: "AMS-143", name: "EXT SET 15 INCH", sequence: "C123CD" },
-  { refNum: "DYNO-0628", name: "EXT SET 15 INCH", sequence: "G265CD" },
-  { refNum: "25037", name: "EXT SET 15 INCH", sequence: "D11510" },
-  { refNum: "3972", name: "EXT SET 15 INCH", sequence: "B550CD" },
-  { refNum: "101140", name: "EXTRACORPOREAL CIRCUIT", sequence: "C705CD" },
-  { refNum: "5133", name: "EXTRACORPOREAL CIRCUIT", sequence: "C70510" },
-  { refNum: "ENF-EXT-060", name: "EXTRACORPOREAL CIRCUIT", sequence: "E30544" },
-  { refNum: "R5311B", name: "FEEDING TUBE NO CLAMP", sequence: "H15010" },
-  { refNum: "43.7432", name: "FEEDING TUBE NO CLAMP", sequence: "E28510" },
-  { refNum: "DYNO-0628", name: "FEEDING TUBE NO CLAMP", sequence: "G265CD" },
-  { refNum: "10764303", name: "FILTER SCALP VEIN", sequence: "H405CD" },
-  { refNum: "4509", name: "FILTER SCALP VEIN", sequence: "D340CD" },
-  { refNum: "7300", name: "FOAM CLEANSER", sequence: "H61010" },
-  { refNum: "SNAP_7879_SURF.FM", name: "FOAM CLEANSER", sequence: "A115CD" },
-  { refNum: "DYNO-0822", name: "FOAM CLEANSER", sequence: "B59510" },
-  { refNum: "10411", name: "FRACTURE BEDPAN", sequence: "G265CD" },
-  { refNum: "40466", name: "FRACTURE BEDPAN", sequence: "D015CD" },
-  { refNum: "40466", name: "GLOVE NON LATEX SIZE 6.5", sequence: "D015CD" },
-  { refNum: "40875", name: "GLOVE NON LATEX SIZE 7.0", sequence: "D205CD" },
-  { refNum: "40875", name: "GLOVE NON LATEX SIZE 7.5", sequence: "D205CD" },
-  { refNum: "4013004", name: "GLOVE NON LATEX SIZE 8.0", sequence: "C31010" },
-  { refNum: "71264.70", name: "GLOVE NON LATEX SIZE 8.5", sequence: "310472" },
-  { refNum: "DYNO-003", name: "GLUCOSE TEST STRIPS", sequence: "D16510" },
-  { refNum: "7009", name: "ADULT INCONTINENCE BRIEFS", sequence: "F005LL" },
-  { refNum: "22330", name: "ADULT WIPE, BULK", sequence: "E61010" },
-  { refNum: "D0039", name: "ALCOHOL PREP PADS", sequence: "D31010" },
-  { refNum: "1004128", name: "ALCOHOL WIPES, LARGE", sequence: "D31010" },
-  { refNum: "51591", name: "AMBULATORY PUMP SET", sequence: "C140CD" },
-  { refNum: "24671", name: "ANKLE WEIGHT 10LBS", sequence: "A015LL" },
-  { refNum: "33311", name: "ANKLE WEIGHT 5LBS", sequence: "A015LL" },
-  { refNum: "D0034", name: "BAND-AID ADHESIVE STRIPS", sequence: "D31010" },
-  { refNum: "262024", name: "BLOOD COLLECTION SET W/ HOLDER", sequence: "D310CD" },
-  { refNum: "163276", name: "BLOOD TRANSFUSION SET", sequence: "C140CD" },
-  { refNum: "163297", name: "BLOOD WARMING SET LARGE BORE", sequence: "C140CD" },
-  { refNum: "25835", name: "BULB SYRINGE 60ML", sequence: "C090CD" },
-  { refNum: "T22002", name: "CARDIAC CATHETER CATHETER", sequence: "F005LA" },
-  { refNum: "6626", name: "CASSETTE", sequence: "A380CD" },
-  { refNum: "6614", name: "CASSETTE ADULT", sequence: "A380CD" },
-  { refNum: "6625", name: "CASSETTE PEDIATRIC", sequence: "A380CD" },
-  { refNum: "D75610", name: "CENTRAL VENOUS CATHETER DRAPE", sequence: "D36510" },
-  { refNum: "273010", name: "CENTRAL VENOUS CATHETER DRESS KIT", sequence: "C140CD" },
-  { refNum: "7630250", name: "CHG CLOTH, 2%", sequence: "D36510" },
-  { refNum: "76301", name: "CHG CLOTH, 4%", sequence: "D36510" },
-  { refNum: "678502", name: "CORDIS CATHETER 6F", sequence: "F005LA" },
-  { refNum: "678503", name: "CORDIS CATHETER 7F", sequence: "F005LA" },
-  { refNum: "678504", name: "CORDIS CATHETER 8F", sequence: "F005LA" },
-  { refNum: "2460", name: "COTTON TIP APPLICATOR", sequence: "D31010" },
-  { refNum: "6882", name: "COVERALLS", sequence: "F45010" },
-  { refNum: "1602", name: "CVP KIT", sequence: "C12510" },
-  { refNum: "78800", name: "D-BAND HEMOSTATIC FINGER DRESSING", sequence: "H23710" },
-  { refNum: "20131422", name: "DRESSING BORDERED GAUZE", sequence: "D36010" },
-  { refNum: "20131442", name: "DRESSING FOAM BORDERED ADHESIVE", sequence: "D36010" },
-  { refNum: "177700", name: "DRESSING FOAM BORDERED ADHESIVE", sequence: "D36010" },
-  { refNum: "37400", name: "DRESSING FOAM NON-ADHESIVE", sequence: "D36010" },
-  { refNum: "40040", name: "DRESSING GAUZE PETROLATUM", sequence: "D36010" },
-  { refNum: "99000", name: "DRESSING KIT, PERITONEAL DIALYSIS", sequence: "C280CD" },
-  { refNum: "200707", name: "DRESSING NON-ADHERENT", sequence: "D36010" },
-  { refNum: "2168", name: "DRESSING NON-ADHERENT WITH ADHESIVE", sequence: "D36010" },
-  { refNum: "1077677", name: "DRESSING WOUND CONTACT LAYER", sequence: "D36010" },
-  { refNum: "2001", name: "DUCT TAPE", sequence: "B720CD" },
-  { refNum: "8515", name: "ECG ELECTRODES ADULT", sequence: "D96510" },
-  { refNum: "8525", name: "ECG ELECTRODES PEDIATRIC", sequence: "D96510" },
-  { refNum: "1016839", name: "HEMOLINK NEEDLE-FREE CONNECTOR", sequence: "C110CD" },
-  { refNum: "9210", name: "HEMOSTATIC SPONGE", sequence: "D36510" },
-  { refNum: "2400", name: "HOT/COLD PACK", sequence: "A015LL" },
-  { refNum: "8390", name: "HURRICANE SPRAY", sequence: "D31510" },
-  { refNum: "VP1F03310C", name: "ICU DRAPE KIT", sequence: "E035CD" },
-  { refNum: "1004128", name: "INFANT WIPE, BULK", sequence: "D31010" },
-  { refNum: "MJG-22002", name: "INSULIN SYRINGE 0.3ML", sequence: "D34010" },
-  { refNum: "25615", name: "INSULIN SYRINGE 0.5ML", sequence: "D34010" },
-  { refNum: "333010", name: "IODINE SWABSTICK", sequence: "D36510" },
-  { refNum: "42060", name: "IV CATH SAFETY ADULT 16G", sequence: "D330CD" },
-  { refNum: "42062", name: "IV CATH SAFETY ADULT 18G", sequence: "D330CD" },
-  { refNum: "42065", name: "IV CATH SAFETY ADULT 20G", sequence: "D330CD" },
-  { refNum: "42067", name: "IV CATH SAFETY ADULT 22G", sequence: "D330CD" },
-  { refNum: "42069", name: "IV CATH SAFETY ADULT 24G", sequence: "D330CD" },
-  { refNum: "384501", name: "IV CATH SAFETY NEONATE 24G", sequence: "D330CD" },
-  { refNum: "42055", name: "IV CATH SAFETY NEONATE 26G", sequence: "D330CD" },
-  { refNum: "7630250", name: "IV CATHETER ACCESS KIT", sequence: "D36510" },
-  { refNum: "5662", name: "IV EXTENSION TUBING", sequence: "C110CD" },
-  { refNum: "7864-02", name: "IV NEEDLE-FREE CONNECTOR", sequence: "C110CD" },
-  { refNum: "1004245", name: "IV SECONDARY ADMINISTRATION SET", sequence: "C140CD" },
-  { refNum: "10010073", name: "IV SOL D5W 100ML", sequence: "D430CD" },
-  { refNum: "10010090", name: "IV SOL D5W 500ML", sequence: "D430CD" },
-  { refNum: "0793100", name: "IV SOL D5W 1000ML", sequence: "D430CD" },
-  { refNum: "099309", name: "IV SOL NS 100ML", sequence: "D430CD" },
-  { refNum: "0798100", name: "IV SOL NS 1000ML", sequence: "D430CD" },
-  { refNum: "10010178", name: "IV SOL LR 1000ML", sequence: "D430CD" },
-  { refNum: "10010090", name: "IV SOL 1/2 NS 500ML", sequence: "D430CD" },
-  { refNum: "10010108", name: "IV SOL D5 1/2NS 1000ML", sequence: "D430CD" },
-  { refNum: "079300", name: "IV SOL D5 1/4NS 100ML", sequence: "D430CD" },
-  { refNum: "10010073", name: "IV SOL D5 1/4NS 50ML", sequence: "D430CD" },
-  { refNum: "047533", name: "IV SOL D10W 500ML", sequence: "D430CD" },
-  { refNum: "046023", name: "IV SOL D20W 50ML", sequence: "D430CD" },
-  { refNum: "376033", name: "IV SOL ALBUMIN 5% 500ML", sequence: "D440CD" },
-  { refNum: "DYN2247B", name: "IV TUBING MICROBORE", sequence: "C110CD" },
-  { refNum: "7209", name: "IV TUBING MACROBORE", sequence: "C140CD" },
-  { refNum: "3307", name: "KANGAROO PUMP SET", sequence: "E410CD" },
-  { refNum: "74023", name: "KNEE ABD SLEEVE LG", sequence: "A015LL" },
-  { refNum: "T01-PNB-BL", name: "LAB LABEL BLANK", sequence: "A650CD" },
-  { refNum: "T01-PNB-RE", name: "LAB LABEL RED", sequence: "A650CD" },
-  { refNum: "99004", name: "LABEL MONDAY ORANGE", sequence: "D50024" },
-  { refNum: "99002", name: "LABEL TUESDAY YELLOW", sequence: "D50024" },
-  { refNum: "99003", name: "LABEL WEDNESDAY BLUE", sequence: "D50024" },
-  { refNum: "99006", name: "LABEL THURSDAY PINK", sequence: "D50024" },
-  { refNum: "99005", name: "LABEL FRIDAY GREEN", sequence: "D50024" },
-  { refNum: "99001", name: "LABEL SATURDAY WHITE", sequence: "D50024" },
-  { refNum: "99007", name: "LABEL SUNDAY RED", sequence: "D50024" },
-  { refNum: "99008", name: "LABEL CONTROL", sequence: "D50024" },
-  { refNum: "T01-PNB-BL", name: "LAB LABEL", sequence: "A650CD" },
-  { refNum: "6600", name: "LANCET SAFETY", sequence: "C065CD" },
-  { refNum: "1802", name: "LANCET SAFETY HEEL SW", sequence: "C065CD" },
-  { refNum: "7101", name: "LARGE BOWL", sequence: "C090CD" },
-  { refNum: "DYN29701", name: "LARGE SURGICAL GOWN LVL 3", sequence: "3411R1" },
-  { refNum: "DYN29703", name: "LARGE SURGICAL GOWN LVL 3 XTRA LG", sequence: "3411R1" },
-  { refNum: "1537", name: "LENS WIPES", sequence: "D31010" },
-  { refNum: "MGX-00020", name: "LIP BALM", sequence: "A31010" },
-  { refNum: "MGP-00007", name: "LUBRICATING JELLY", sequence: "A31010" },
-  { refNum: "MGJ-00016", name: "MASK ADULT FOAM", sequence: "F45510" },
-  { refNum: "3114018", name: "MASK ADULT SURGICAL", sequence: "F44510" },
-  { refNum: "3114018", name: "MASK ADULT WITH EARING", sequence: "F44510" },
-  { refNum: "3114018", name: "MASK ADULT WITH TIE", sequence: "F44510" },
-  { refNum: "3658", name: "MASK BLUE DRAGON", sequence: "F45510" },
-  { refNum: "1042", name: "MASK ELASTICATED", sequence: "F45510" },
-  { refNum: "1045", name: "MASK ELASTICATED WITH FOAM", sequence: "F45510" },
-  { refNum: "1090", name: "MASK ELASTICATED PEDI", sequence: "F45510" },
-  { refNum: "1006584", name: "MASK FOAM LARGE", sequence: "F45510" },
-  { refNum: "1042", name: "MASK FOAM SMALL", sequence: "F45510" },
-  { refNum: "1045", name: "MASK INFANT", sequence: "F45510" },
-  { refNum: "1042", name: "MASK PEDIATRIC", sequence: "F45510" },
-  { refNum: "VP1F03310C", name: "MASK PROCEDURE WITH EYE SHIELD", sequence: "F45510" },
-  { refNum: "1042", name: "MASK PEDIATRIC FOAM", sequence: "F45510" },
-  { refNum: "3114018", name: "MASK NON-REBREATHER", sequence: "F40010" },
-  { refNum: "1042", name: "MASK WITH EARLOOP ADULT", sequence: "F45510" },
-  { refNum: "1042", name: "MASK WITH EARLOOP PEDI", sequence: "F45510" },
-  { refNum: "3540", name: "MASK BAG", sequence: "F47510" },
-  { refNum: "9910", name: "MATERNITY KIT", sequence: "H13510" },
-  { refNum: "25095", name: "MATERNITY PAD", sequence: "H13510" },
-  { refNum: "70MAZ", name: "MATERNITY PANTS", sequence: "H13510" },
-  { refNum: "9100", name: "MATERNITY PANTS LUXE", sequence: "H13510" },
-  { refNum: "8300-100", name: "MEGELA DRAINAGE KIT", sequence: "H43510" },
-  { refNum: "871000-100", name: "MEGELA DRAINAGE KIT PEDI", sequence: "H43510" },
-  { refNum: "2076", name: "MEGELA DRAINAGE KIT LARGE", sequence: "H43510" },
-  { refNum: "9115", name: "MEGELA DRAINAGE KIT SMALL", sequence: "H43510" },
-  { refNum: "2168", name: "METHYLENE BLUE", sequence: "C125CD" },
-  { refNum: "311519", name: "MEPILEX LITE", sequence: "H33010" },
-  { refNum: "311518", name: "MEPILEX BORDER", sequence: "H33010" },
-  { refNum: "311517", name: "MEPILEX BORDER LITE", sequence: "H33010" },
-  { refNum: "311516", name: "MEPILEX BORDER FLEX", sequence: "H33010" },
-  { refNum: "311515", name: "MEPILEX ONE", sequence: "H33010" },
-  { refNum: "311514", name: "MEPILEX TRANSFER", sequence: "H33010" },
-  { refNum: "311513", name: "MEPILEX BORDER LITE XS", sequence: "H33010" },
-  { refNum: "1004245", name: "MICROCLAVE", sequence: "C110CD" },
-  { refNum: "D8790", name: "MICROCLAVE EXTENSION 40IN", sequence: "E22010" },
-  { refNum: "E5140", name: "MICROCLAVE EXTENSION 6IN", sequence: "E22010" },
-  { refNum: "MOS30034A", name: "MICROCLAVE EXTENSION 10IN", sequence: "G24510" },
-  { refNum: "41103", name: "MICROCLAVE EXTENSION 12IN", sequence: "G24510" },
-  { refNum: "414112", name: "MINI SPIKE ADAPTER", sequence: "C415CD" },
-  { refNum: "4261", name: "MINI SPIKE ADAPTER", sequence: "C415CD" },
-  { refNum: "10641", name: "MONTGOMERY STRAP", sequence: "NARCACS" },
-  { refNum: "74023", name: "MRI EXTENSION", sequence: "A015LL" },
-  { refNum: "1050-80", name: "MRI EXTENSION TUBING", sequence: "A10F10" },
-  { refNum: "1050-80", name: "MRI EXTENSION TUBING 48", sequence: "A10F10" },
-  { refNum: "99000", name: "MRI ACCESSORY KIT", sequence: "C280CD" },
-  { refNum: "1631", name: "MRI ADAPTER", sequence: "D46510" },
-  { refNum: "1631", name: "MRI ADAPTER WITH TUBING", sequence: "D46510" },
-  { refNum: "MOS30023", name: "NAIL POLISH REMOVER", sequence: "A730CD" },
-  { refNum: "376033", name: "NASAL ASPIRATOR", sequence: "D440CD" },
-  { refNum: "N224", name: "NASAL ASPIRATOR NG", sequence: "E26110" },
-  { refNum: "N225", name: "NASAL CANNULA ADULT", sequence: "F40010" },
-  { refNum: "1602-50", name: "NASAL CANNULA PEDI", sequence: "F40010" },
-  { refNum: "1602-60", name: "NASAL CANNULA INFANT", sequence: "F40010" },
-  { refNum: "1601-07", name: "NASAL CATHETER", sequence: "F40010" },
-  { refNum: "1602-55", name: "NASAL CATHETER INFANT", sequence: "F40010" },
-  { refNum: "1651-07", name: "NASAL CATHETER NG", sequence: "H515CD" },
-  { refNum: "1651-08", name: "NASAL CATHETER SMALL", sequence: "H515CD" },
-  { refNum: "98-105-X", name: "NATURALYTE CONCENTRATE 1X2.5", sequence: "C115CD" },
-  { refNum: "98-106-X", name: "NATURALYTE CONCENTRATE 1X5", sequence: "C115CD" },
-  { refNum: "98-107-X", name: "NATURALYTE CONCENTRATE 2X2.5", sequence: "C115CD" },
-  { refNum: "98-108-X", name: "NATURALYTE CONCENTRATE 2X5", sequence: "C115CD" },
-  { refNum: "3606", name: "NEB KIT", sequence: "F505CD" },
-  { refNum: "383344", name: "NEEDLE BLOOD COLLECTION 21G", sequence: "D050CD" },
-  { refNum: "383343", name: "NEEDLE HYPO 18GX1.5", sequence: "D050CD" },
-  { refNum: "305190", name: "NEEDLE HYPO 20GX1.5", sequence: "D050CD" },
-  { refNum: "305190", name: "NEEDLE HYPO 22GX1.5", sequence: "D050CD" },
-  { refNum: "305190", name: "NEEDLE HYPO 25GX5/8", sequence: "D050CD" },
-  { refNum: "4527", name: "NEEDLE 25G", sequence: "D050CD" },
-  { refNum: "000283", name: "NEEDLE PERCUTANEOUS 21G", sequence: "G41510" },
-  { refNum: "000283", name: "NEEDLE PERCUTANEOUS 21G 40CM", sequence: "G41510" },
-  { refNum: "NEOC01", name: "NEONATAL INFUSION SET", sequence: "NIBICY" },
-  { refNum: "NEOC02", name: "NEONATAL INFUSION SET W/HOLDER", sequence: "NIBICY" },
-  { refNum: "NEOC03", name: "NEONATAL INFUSION SET 12 IN", sequence: "NIBICY" },
-  { refNum: "40-9505", name: "NEONATAL BP CUFF SIZE 5", sequence: "E24510" },
-  { refNum: "40-9506", name: "NEONATAL BP CUFF SIZE 6", sequence: "E24510" },
-  { refNum: "40-9507", name: "NEONATAL BP CUFF SIZE 7", sequence: "E24510" },
-  { refNum: "53684", name: "NIPPLE STANDARD FLOW", sequence: "E40024" },
-  { refNum: "53685", name: "NIPPLE SLOW FLOW", sequence: "E40024" },
-  { refNum: "74023", name: "NIPPLE PREMIE", sequence: "A015LL" },
-  { refNum: "3545", name: "NPS SOMATIC PROTEIN", sequence: "H35530" },
-  { refNum: "3546", name: "NPS SOMATIC PROTEIN LG", sequence: "H35530" },
-  { refNum: "EFR-0100A9", name: "NO STING BARRIER FILM SPRAY", sequence: "A305CD" },
-  { refNum: "EFR-0100A8", name: "NO STING BARRIER FILM WIPE", sequence: "A305CD" },
-  { refNum: "099309", name: "NON-IONIC AD", sequence: "D430CD" },
-  { refNum: "EFR-01018", name: "NON-IONIC PD", sequence: "A310CD" },
-  { refNum: "MOS31464", name: "NON-IONIC SURGICAL", sequence: "G24510" },
-  { refNum: "MOS31463", name: "NON-IONIC SURGICAL XL", sequence: "G24510" },
-  { refNum: "MOS31462", name: "NON-IONIC SURGICAL XXL", sequence: "G24510" },
-  { refNum: "9910", name: "NURSING KIT", sequence: "H13510" },
-  { refNum: "935480", name: "ODOR ELIMINATOR SPRAY", sequence: "C12510" },
-  { refNum: "MSCCV960P", name: "OASIS DRAINAGE KIT", sequence: "H23710" },
-  { refNum: "MSCCV960L", name: "OASIS DRAINAGE KIT LARGE", sequence: "H23710" },
-  { refNum: "MSCCV960P", name: "OASIS DRAINAGE KIT PEDI", sequence: "H23710" },
-  { refNum: "MSCCV960P", name: "OASIS DRAINAGE KIT SMALL", sequence: "H23710" },
-  { refNum: "9007", name: "ORAL SWAB", sequence: "D31010" },
-  { refNum: "9603OT", name: "ORAL SWAB KIT", sequence: "B720CD" },
-  { refRef: "1631", name: "ORAL SWAB KIT WITH DENTURE CUP", sequence: "D46510" },
-  { refNum: "VP1F03310C", name: "PACKING STANDARD", sequence: "E035CD" },
-  { refNum: "NON26324D", name: "PACKING 1/4 INCH", sequence: "B200CD" },
-  { refNum: "NON26325D", name: "PACKING 1/2 INCH", sequence: "B200CD" },
-  { refNum: "NON26326D", name: "PACKING 3/4 INCH", sequence: "B200CD" },
-  { refNum: "NON26327D", name: "PACKING 1 INCH", sequence: "B200CD" },
-  { refNum: "1631", name: "PAPER TAPE 1IN", sequence: "D46510" },
-  { refNum: "900501D", name: "PAPER TAPE 2IN", sequence: "D32010" },
-  { refNum: "1905", name: "PH INDICATOR STICK", sequence: "H43510" },
-  { refNum: "1904", name: "PH INDICATOR STRIP", sequence: "H43510" },
-  { refNum: "501444", name: "PILLOW CASE DISPOSABLE", sequence: "D34010" },
-  { refNum: "RCN9300", name: "PILL CRUSHER", sequence: "A23710" },
-  { refNum: "RCN93020", name: "PILL SPLITTER", sequence: "A23710" },
-  { refNum: "74023", name: "PILL TRAY", sequence: "A015LL" },
-  { refNum: "DYN963024", name: "PITCHER LINER", sequence: "H43510" },
-  { refNum: "PLIEVEX WIPE ADULT", sequence: "E61010" },
-  { refNum: "PLIEVEX WIPE BABY", sequence: "E61010" },
-  { refNum: "S-1190-0F", name: "PORE STRIP", sequence: "A305CD" },
-  { refNum: "1911M", name: "POWDER FOOT", sequence: "A20510" },
-  { refNum: "1911M", name: "POWDER MEDICATED", sequence: "A20510" },
-  { refNum: "1911M", name: "POWDER MEDICATED LG", sequence: "A20510" },
-  { refNum: "25095", name: "POWDER NON-MEDICATED", sequence: "H13510" },
-  { refNum: "PPDB-00", name: "POUCH PILL PEDIATRIC UNIT", sequence: "A26010" },
-  { refNum: "RCN9300", name: "PREP PAD ALCOHOL", sequence: "A23710" },
-  { refNum: "MOS30034A", name: "PREP PAD IODINE", sequence: "G24510" },
-  { refNum: "1631", name: "PREP PAD SKIN CLEANSING", sequence: "D46510" },
-  { refNum: "9910", name: "PREP PAD SKIN PROTECTANT", sequence: "H13510" },
-  { refNum: "9910", name: "PREP PAD SKIN PROTECTANT WIPES", sequence: "H13510" },
-  { refNum: "260300", name: "PREP PAD CHLORAPREP 3ML", sequence: "C195CD" },
-  { refNum: "260300", name: "PREP PAD CHLORAPREP 1.5ML", sequence: "C195CD" },
-  { refNum: "10041", name: "PRIMAPORE DRESSING", sequence: "NARCACS" },
-  { refNum: "10042", name: "PROXIMATE SKIN STAPLER", sequence: "NARCACS" },
-  { refNum: "51591", name: "PUMP SET ADULT", sequence: "C140CD" },
-  { refNum: "10641", name: "PUMP SET PEDIATRIC", sequence: "NARCACS" },
-  { refNum: "37400", name: "RADIAL ARM CATHETER KIT", sequence: "D36010" },
-  { refNum: "10641", name: "RADIAL ARM CATHETER SET", sequence: "NARCACS" },
-  { refNum: "10641", name: "RADIAL ARM CATHETER SHEATH", sequence: "NARCACS" },
-  { refNum: "10641", name: "RADIAL ARM CATHETER SHEATH 5CM", sequence: "NARCACS" },
-  { refNum: "UPC002", name: "RECTAL SUPPOSITORY", sequence: "C49510" },
-  { refNum: "UPC003", name: "RECTAL ENEMA", sequence: "C49510" },
-  { refNum: "53684", name: "REFLUX POUCH", sequence: "E40024" },
-  { refNum: "UPC003", name: "RENAL CATHETER", sequence: "C49510" },
-  { refNum: "MBC0023", name: "REPLOGLE CHEST CATHETER", sequence: "A730CD" },
-  { refNum: "MBC0024", name: "REPLOGLE CHEST CATHETER TIP", sequence: "A730CD" },
-  { refNum: "MBC0025", name: "REPLOGLE SUCTION CATHETER", sequence: "A730CD" },
-  { refNum: "MBC0026", name: "REPLOGLE SUCTION CATHETER TIP", sequence: "A730CD" },
-  { refNum: "53684", name: "RESTRAINTS", sequence: "E40024" },
-  { refNum: "900501D", name: "RESTRAINTS PEDIATRIC", sequence: "D32010" },
-  { refNum: "1631", name: "RESUSCITATION BAG ADULT", sequence: "D46510" },
-  { refNum: "1631", name: "RESUSCITATION BAG PEDIATRIC", sequence: "D46510" },
-  { refNum: "888849491", name: "SALEM SUMP SIZE 10", sequence: "E51010" },
-  { refNum: "888849492", name: "SALEM SUMP SIZE 12", sequence: "E51010" },
-  { refNum: "888849493", name: "SALEM SUMP SIZE 14", sequence: "E51010" },
-  { refNum: "888849494", name: "SALEM SUMP SIZE 16", sequence: "E51010" },
-  { refNum: "888849495", name: "SALEM SUMP SIZE 18", sequence: "E51010" },
-  { refNum: "1340.06", name: "SALEM SUMP TUBES", sequence: "E29510" },
-  { refNum: "1340.06", name: "SALEM SUMP TUBES 6FT", sequence: "E29510" },
-  { refNum: "1340.06", name: "SALEM SUMP TUBES 10FT", sequence: "E29510" },
-  { refNum: "1340.06", name: "SALEM SUMP TUBES 12FT", sequence: "E29510" },
-  { refNum: "306647", name: "SALINE FLUSH STERILE", sequence: "D050CD" },
-  { refNum: "306647", name: "SALINE FLUSH STERILE 5ML", sequence: "D050CD" },
-  { refNum: "306647", name: "SALINE FLUSH STERILE 10ML", sequence: "D050CD" },
-  { refNum: "B71THM-S", name: "SCALPEL SAFETY #11", sequence: "C325CD" },
-  { refNum: "B71THM-M", name: "SCALPEL SAFETY #10", sequence: "C325CD" },
-  { refNum: "B71THM-L", name: "SCALPEL SAFETY #15", sequence: "C325CD" },
-  { refNum: "372611", name: "SCALPEL SAFETY #20", sequence: "G26510" },
-  { refNum: "6714", name: "PEDIATRIC INFUSION SET", sequence: "A515CD" },
-  { refNum: "260300", name: "CHLORAPREP 1.5ML", sequence: "B075CD" },
-  { refNum: "5-10405", name: "TUBE ET CUFFED 5.0", sequence: "F52510" },
-  { refNum: "5-10406", name: "TUBE ET CUFFED 6.0", sequence: "F53010" },
-  { refNum: "5-10407", name: "TUBE ET CUFFED 7.0", sequence: "F53510" },
-  { refNum: "5-10408", name: "TUBE ET CUFFED 8.0", sequence: "F54010" },
-  { refNum: "56233", name: "TUBE ET UNCUEFED 2.5", sequence: "F50510" },
-  { refNum: "5-10403", name: "TUBE ET UNCUEFED 3.0", sequence: "F51010" },
-  { refNum: "5-10404", name: "TUBE ET UNCUEFED 3.5", sequence: "F51510" },
-  { refNum: "5-10405", name: "TUBE ET UNCUEFED 4.0", sequence: "F52010" },
-  { refNum: "5-10406", name: "TUBE ET UNCUEFED 5.0", sequence: "F52510" },
-  { refNum: "5-10407", name: "TUBE ET UNCUEFED 6.0", sequence: "F53010" },
-  { refNum: "5-10408", name: "TUBE ET UNCUEFED 7.0", sequence: "F53510" },
-  { refNum: "5-10409", name: "TUBE ET UNCUEFED 8.0", sequence: "F54010" },
-  { refNum: "5-10411", name: "TUBE ET TRACHEOSTOMY", sequence: "F55010" },
-  { refNum: "ENFPL425GLD", name: "TUBE FEED 4FR ENTERAL", sequence: "B21010" },
-  { refNum: "DYND04632", name: "TUBE FEED 8FR ENTRAL", sequence: "B23010" },
-  { refNum: "379858", name: "TUBE VACUTAINER B BLUE 2.7ML", sequence: "C21510" },
-  { refNum: "379857", name: "TUBE VACUTAINER B BLUE 3.2ML", sequence: "C21010" },
-  { refNum: "367988", name: "TUBE VACUTAINER GREEN 3ML", sequence: "C24010" },
-  { refNum: "367875", name: "TUBE VACUTAINER GOLD 5ML", sequence: "C20010" },
-  { refNum: "367841", name: "TUBE VACUTAINER LAV 2ML", sequence: "C20524" },
-  { refNum: "367855", name: "TUBE VACUTAINER LAV 3ML", sequence: "C20526" },
-  { refNum: "367863", name: "TUBE VACUTAINER LAV 4ML", sequence: "T11010" },
-  { refNum: "367990", name: "TUBE VACUTAINER MINT 4ML", sequence: "C22024" },
-  { refNum: "367980", name: "TUBE VACUTAINER RED 5ML", sequence: "C20516" },
-  { refNum: "368406", name: "TUBE VACUTAINER YELLOW 8.5ML", sequence: "C24010" },
-  { refNum: "367992", name: "TUBE VACUTAINER YELLOW 13ML", sequence: "C24010" },
-  { refNum: "10011865", name: "TUBING EXT W/FILTER", sequence: "D13030" },
-  { refNum: "DYND16135", name: "TUBING EXTENSION 48IN L/L", sequence: "D13020" },
-  { refNum: "NONS180NEN06", name: "TUBULAR NET BANDAGE SZ 3", sequence: "H800CD" },
-  { refNum: "NONS180NEN07", name: "TUBULAR NET BANDAGE SZ 4", sequence: "H810CD" },
-  { refNum: "NONS180NEN08", name: "TUBULAR NET BANDAGE SZ 5", sequence: "H830CD" },
-  { refNum: "51-01", name: "ULTRASOUND GEL STERILE", sequence: "G45010" },
-  { refNum: "MBE600-003", name: "UNDERPAD", sequence: "B01510" },
-  { refNum: "ULTRASORB6016", name: "UNDERPAD 30\" X 16\"", sequence: "B015LA" },
-  { refNum: "6612", name: "UNDERPAD CHUX W/COTTON XXL", sequence: "B015RD" },
-  { refNum: "DYND082355", name: "URINAL PT", sequence: "D015CD" },
-  { refNum: "700", name: "URINAL BAG", sequence: "D030CD" },
-  { refNum: "VMP400", name: "VAMP NEEDLELESS CANNULA", sequence: "D15030" },
-  { refNum: "VMP-100", name: "VAPORIZER WICK", sequence: "B505CD" },
-  { refNum: "36405", name: "VASCULAR ACCESS DRESSING", sequence: "B00510" },
-  { refNum: "1002", name: "VENTRICULOSTOMY DRAPE BLUE", sequence: "S61010" },
-  { refNum: "1005CR060", name: "WAFFLE BED", sequence: "A740CD" },
-  { refNum: "214PCC", name: "WAFFLE CUSHION", sequence: "A715CD" },
-  { refNum: "SKU:WALKERXLS", name: "WALKER W/WHEELS LRG", sequence: "A790CD" },
-  { refNum: "8002-082-522", name: "WARNING PAD", sequence: "S42024" },
-  { refNum: "9600100", name: "WATER W/CHLORINE TABLETS", sequence: "B605CD" },
-  { refNum: "M8275083/10/S", name: "WOUND VAC CANNISTER", sequence: "B810CD" },
-  { refNum: "1000216", name: "WOUND VAC", sequence: "34315" },
-  { refNum: "DYND046132", name: "YANKAUER NON-VENTED", sequence: "E30035" },
-  { refNum: "40-1007", name: "Y-EXT SET EXTERNAL", sequence: "E27510" },
-  { refNum: "10012996", name: "SUTURE REMOVAL TRAY", sequence: "E25010" },
-  { refNum: "1665", name: "SUTURES", sequence: "B050CD" },
-  { refNum: "10001175", name: "SENSOR PULSE COATING", sequence: "D31030" },
-  { refNum: "9900012", name: "SHIELD HEAD ADULT", sequence: "A51524" },
-  { refNum: "NONS180NOW17", name: "SHIELD HEAD PEDIATRIC", sequence: "A52024" },
-  { refNum: "5600", name: "SILVER NITRATE", sequence: "H31020" },
-  { refNum: "W/CD-44", name: "SILVER NITRATE APPLICATOR", sequence: "H31010" },
-  { refNum: "W/CD-11", name: "SILVERION AG PEDI COMPACT", sequence: "H31510" },
-  { refNum: "10012803", name: "SIMULATED PATIENT MONITOR", sequence: "G52010" },
-  { refNum: "127230-001", name: "SNSR PULSE OX MODEL 8000CB", sequence: "A17010" },
-  { refNum: "7400030", name: "SOCK ANTI-EMBOLISM LRG", sequence: "A23520" },
-  { refNum: "PL2391", name: "SOCK ANTI-EMBOLISM MED", sequence: "A23510" },
-  { refNum: "MOTLEYHEAD", name: "SOCKS BLUE LG", sequence: "B510CD" },
-  { refNum: "BLUEFOOT", name: "SOCKS BLUE MD", sequence: "B505CD" },
-  { refNum: "DYND04052", name: "SOCKS ORANGE DRY", sequence: "A23530" },
-  { refNum: "N/A", name: "SOLUTION BOWL", sequence: "G505CD" },
-  { refNum: "DYND16104", name: "SOLUTION BOWL 300ML", sequence: "G50510" },
-  { refNum: "1500", name: "SOLUTION BOWL 1000ML", sequence: "G50530" },
-  { refNum: "2500", name: "SPECIMEN BAG W/POCKET", sequence: "D005CD" },
-  { refNum: "DYND93600", name: "SPECIMEN HAT 1000ML", sequence: "G430CD" },
-  { refNum: "60541", name: "SPECIMEN CVC TRAY BLUE 10CH", sequence: "G515CD" },
-  { refNum: "043993", name: "SPECIMEN CVC TRAY BLUE 12CH", sequence: "G515CD" },
-  { refNum: "043995", name: "SPECIMEN CVC TRAY BLUE 14CH", sequence: "G515CD" },
-  { refNum: "043997", name: "SPECIMEN CVC TRAY BLUE 16CH", sequence: "G515CD" },
-  { refNum: "043999", name: "SPECIMEN CVC TRAY BLUE 18CH", sequence: "G515CD" },
-  { refNum: "4514", name: "SPECIMEN CVC TRAY BLUE 20CH", sequence: "G515CD" },
-  { refNum: "DYND16130", name: "SPECIMEN CVC TRAY BLUE 22CH", sequence: "G515CD" },
-  { refNum: "1000", name: "SPECIMEN CVC TRAY BLUE 24CH", sequence: "G515CD" },
-  { refNum: "8.5MM06-11", name: "STETHOSCOPE DUAL PILLOW", sequence: "H13010" },
-  { refNum: "VMP-100", name: "STETHOSCOPE", sequence: "H130CD" },
-  { refNum: "1002", name: "STERILE DAALYSIS VIAL", sequence: "G45010" },
-  { refNum: "3798", name: "STERILE WATER 10ML", sequence: "B50510" },
-  { refNum: "VMP100", name: "STERI-LOCK PICC PLUS PEDIA", sequence: "D15030" },
-  { refNum: "5963", name: "STERILE WATER 1000ML", sequence: "B50530" },
-  { refNum: "R1547", name: "STERILE WATER 500ML", sequence: "B50520" },
-  { refNum: "00539-03", name: "STERILE WATER 1500ML", sequence: "B50540" },
-  { refNum: "50409-4886-10", name: "STERILE WATER 3000ML", sequence: "D60534" },
-  { refNum: "3650", name: "STOPCOCK", sequence: "E640CD" },
-  { refNum: "R500-01", name: "STOPCOCK 3 WAY", sequence: "E640CD" },
-  { refNum: "R50001", name: "STOPCOCK 4 WAY", sequence: "E64010" },
-  { refNum: "KMPV4800A", name: "STOPCOCK", sequence: "A790CD" },
-  { refNum: "DYND04085", name: "STOPCOCK", sequence: "A79010" },
-  { refNum: "MX9344L", name: "STOPCOCK 4 WAY", sequence: "C42024" },
-  { refNum: "DYND04084", name: "STOPCOCK", sequence: "A79020" },
-  { refNum: "ENF STRAW", name: "STOPCOCK", sequence: "G22044" },
-  { refNum: "DYND04087", name: "STRAW MED", sequence: "D030CD" },
-  { refNum: "760", name: "STYLETT 8F", sequence: "F615CD" },
-  { refNum: "761", name: "STYLETT 10F", sequence: "F61510" },
-  { refNum: "762", name: "STYLETT 12F", sequence: "F610CD" },
-  { refNum: "500", name: "STYLETT SLICKER 8F", sequence: "F610CD" },
-  { refNum: "300", name: "STYLETT SLICKER 10F", sequence: "F605CD" },
-  { refNum: "DYND04088", name: "STYLETT SLICKER 12F", sequence: "F60510" },
-  { refNum: "10012999", name: "SUCTION CATH 10F", sequence: "F205CD" },
-  { refNum: "DYND04080", name: "SUCTION CATH 12F", sequence: "F250CD" },
-  { refNum: "DYND04082", name: "SUCTION CATH 14F", sequence: "F25510" },
-  { refNum: "DYND04083", name: "SUCTION CATH 16F", sequence: "F25010" },
-  { refNum: "0-1002", name: "SUCTION CATH KIT 8F", sequence: "F24524" },
-  { refNum: "DYND04086", name: "SUCTION CATH KIT 10F", sequence: "F24526" },
-  { refNum: "DYND04089", name: "SUCTION CATH KIT 14F", sequence: "F250CD" },
-  { refNum: "DYND4029F", name: "SUCTION CATH W/SLIDE", sequence: "F26510" },
-  { refNum: "1001", name: "SUCTION CLOSED 14F", sequence: "F350CD" },
-  { refNum: "2160", name: "SUCTION CLOSED 12F", sequence: "F35010" },
-  { refNum: "2210", name: "SUCTION CLOSED 16F", sequence: "F35530" },
-  { refNum: "6714", name: "SHORT EXTENSION TUBING", sequence: "A515CD" },
-  { refNum: "8805", name: "SHUTOFF VALVE", sequence: "D170CD" },
-  { refNum: "R500-01", name: "STOPCOCK", sequence: "E640CD" },
-  { refNum: "1001", name: "SUCTION CLOSED 14F", sequence: "F350CD" },
-  { refNum: "8895", name: "SUCTION CATHETER 10FR", sequence: "F205CD" },
-  { refNum: "36147", name: "SURGICAL MASK W/EARLOOP", sequence: "B505CD" },
-  { refNum: "8200", name: "SURGICAL SPONGE", sequence: "C010CD" },
-  { refNum: "379761", name: "SURGICAL SPONGE 4X4", sequence: "C015CD" },
-  { refNum: "379762", name: "SURGICAL SPONGE 2X2", sequence: "C020CD" },
-  { refNum: "DYND04083", name: "SURGICAL SUCTION TUBE 16F", sequence: "F25010" },
-  { refNum: "900", name: "SWAB STICK", sequence: "H10510" },
-  { refNum: "305110", name: "SWABSTICK W/NA", sequence: "G510CD" },
-  { refNum: "305101", name: "SWABSTICK W/PVP", sequence: "H10510" },
-  { refNum: "990646", name: "SYRINGE LUER LOCK 10ML", sequence: "C22024" },
-  { refNum: "40040", name: "SYRINGE LUER LOCK 20ML", sequence: "C22510" },
-  { refNum: "PL2391", name: "SYRINGE LUER LOCK 30ML", sequence: "A23510" },
-  { refNum: "MS-SYNC", name: "SYRINGE LUER LOCK 60ML", sequence: "A170CD" },
-  { refNum: "SYRINGE LUER LOCK 5ML", name: "8886001", sequence: "A150CD" },
-  { refNum: "DYND04087", name: "SYRINGE ORAL 5ML", sequence: "D030CD" },
-  { refNum: "DYND04089", name: "SYRINGE ORAL 10ML", sequence: "F250CD" },
-  { refNum: "DYND04090", name: "SYRINGE ORAL 20ML", sequence: "F25510" },
-  { refNum: "DYND04091", name: "SYRINGE ORAL 60ML", sequence: "F26510" },
-  { refNum: "305101", name: "TAPE ADHESIVE (20 ROLL) 1IN", sequence: "H10510" },
-  { refNum: "DYND04092", name: "TAPE MEASURE", sequence: "F270CD" },
-  { refNum: "305102", name: "TAPE MEASURE 2IN", sequence: "G52010" },
-  { refNum: "DYND04093", name: "TAPE MEASURE 3IN", sequence: "F275CD" },
-  { refNum: "305103", name: "TAPE MEASURE 4IN", sequence: "H105CD" },
-  { refNum: "NYC0415333", name: "TAPE PROTECTION", sequence: "H110CD" },
-  { refNum: "NYC0415334", name: "TAPE PROTECTION 2IN", sequence: "H115CD" },
-  { refNum: "DYND04095", name: "TAPE PROTECTION 3IN", sequence: "H120CD" },
-  { refNum: "DYND04096", name: "TAPE SEAL CLEAR", sequence: "A520CD" },
-  { refNum: "1683", name: "TAPE SEAL CLEAR W/LABEL", sequence: "H800CD" },
-  { refNum: "1684", name: "TAPE SEAL CLEAR W/LABEL 2IN", sequence: "H810CD" },
-  { refNum: "1622", name: "TAPE SEAL CLEAR W/LABEL 3IN", sequence: "H830CD" },
-  { refNum: "1623", name: "TAPE SEAL CLEAR W/LABEL 4IN", sequence: "H840CD" },
-  { refNum: "1626W", name: "TEMPERATURE PROBE 10FT", sequence: "H125CD" },
-  { refNum: "1627W", name: "TEMPERATURE PROBE 20FT", sequence: "H130CD" },
-  { refNum: "1628W", name: "TEMPERATURE PROBE 30FT", sequence: "H135CD" },
-  { refNum: "DYND04098", name: "TEMPERATURE PROBE 40FT", sequence: "H140CD" },
-  { refNum: "DYND04099", name: "TEMPERATURE PROBE 50FT", sequence: "H145CD" },
-  { refNum: "DYND04100", name: "TEMPERATURE PROBE 60FT", sequence: "H150CD" },
-  { refNum: "305104", name: "TEMPERATURE PROBE 70FT", sequence: "H155CD" },
-  { refNum: "DYND04102", name: "TEMPERATURE PROBE 80FT", sequence: "H160CD" },
-  { refNum: "D15090", name: "TEMP PROBE CABLE", sequence: "D15090" },
-  { refNum: "QPDYG-20-PAD", name: "TEMP PROBE CABLE W/PAD", sequence: "D60510" },
-  { refNum: "DYND04103", name: "TEMP PROBE CABLE W/PAD 2IN", sequence: "D60520" },
-  { refNum: "1691", name: "THERMOMETER DISPOSABLE", sequence: "H850CD" },
-  { refNum: "MBE600-003", name: "THERMOMETER ORAL", sequence: "B01510" },
-  { refNum: "NC598922", name: "THERMOMETER RECTAL", sequence: "A745CD" },
-  { refNum: "NC598923", name: "THERMOMETER AXILLARY", sequence: "A740CD" },
-  { refNum: "NC598924", name: "THERMOMETER EAR", sequence: "A735CD" },
-  { refNum: "A22524", name: "TISSUES", sequence: "A22524" },
-  { refNum: "A23024", name: "TOOTHBRUSH ADULT", sequence: "A23024" },
-  { refNum: "MBE600-003", name: "TOOTHBRUSH CHILD", sequence: "B01510" },
-  { refNum: "DYND04106", name: "TOOTHBRUSH INFANT", sequence: "F280CD" },
-  { refNum: "H11508", name: "TOOTHBRUSH JUVENILE", sequence: "H11508" },
-  { refNum: "H11509", name: "TOOTHBRUSH ORAL", sequence: "H11509" },
-  { refNum: "H11510", name: "TOOTHBRUSH RECTAL", sequence: "H11510" },
-  { refNum: "DYND93600", name: "TRAY DRAINAGE", sequence: "G430CD" },
-  { refNum: "0888506110", name: "TRAY LUMBAR PUNCTURE", sequence: "F610CD" },
-  { refNum: "0888506112", name: "TRAY STERILE", sequence: "F605CD" },
-  { refNum: "0888506132", name: "TRIAGE KIT", sequence: "F60510" },
-  { refNum: "DYND04108", name: "TUBE ET CATHETER 6.0", sequence: "F53010" },
-  { refNum: "DYND04109", name: "TUBE ET CATHETER 7.0", sequence: "F53510" },
-  { refNum: "DYND04110", name: "TUBE ET CATHETER 8.0", sequence: "F54010" },
-  { refNum: "5-10107", name: "TUBE ET CUFFED 4.0", sequence: "F52010" },
-  { refNum: "5-10108", name: "TUBE ET CUFFED 5.0", sequence: "F52510" },
-  { refNum: "5-10109", name: "TUBE ET CUFFED 6.0", sequence: "F53010" },
-  { refNum: "5-10110", name: "TUBE ET CUFFED 7.0", sequence: "F53510" },
-  { refNum: "5-10111", name: "TUBE ET CUFFED 8.0", sequence: "F54010" },
+const cvicuData = 
+[
+  {
+    "itemNumber": "1080388",
+    "name": "BAG HYPERINFLATION GREENS 1.0",
+    "sequence": "F545CD"
+  },
+  {
+    "itemNumber": "25-3001",
+    "name": "BUNKER ADHESIVE TAPE",
+    "sequence": "G36610"
+  },
+  {
+    "itemNumber": "NON20038",
+    "name": "TOWEL TAPE DRESSING",
+    "sequence": "G1950D"
+  },
+  {
+    "itemNumber": "5-3001",
+    "name": "GUIDE WIRE STRAIGHT PICCOCORE",
+    "sequence": "512010"
+  },
+  {
+    "itemNumber": "DYNO-10166",
+    "name": "HANDLE SAFETY SCALPEL",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "DYNO-10166",
+    "name": "HEAD COOLER DISP.",
+    "sequence": "E03C0D"
+  },
+  {
+    "itemNumber": "13275-1",
+    "name": "INJECTOR TROCAR SYSTEM TRAY",
+    "sequence": "A3950D"
+  },
+  {
+    "itemNumber": "TWBD1023",
+    "name": "SURGICLEAR 10CM X 12CM DRESSINGS",
+    "sequence": "H4470S"
+  },
+  {
+    "itemNumber": "9019P-VC-005",
+    "name": "SURGICLEAR 6CM X 26CM DRESSINGS",
+    "sequence": "B12610"
+  },
+  {
+    "itemNumber": "12436-02",
+    "name": "SHAMPOO CAP",
+    "sequence": "B54530"
+  },
+  {
+    "itemNumber": "L-70",
+    "name": "SET INFUS L69IN 13HL HALF 3",
+    "sequence": "D30530"
+  },
+  {
+    "itemNumber": "L-70",
+    "name": "SET IV FLUID WARMER HOT LINE",
+    "sequence": "D30530"
+  },
+  {
+    "itemNumber": "04-24",
+    "name": "4.0 SILK PS-2",
+    "sequence": "G20510"
+  },
+  {
+    "itemNumber": "1677",
+    "name": "4.0 SILK PS-2",
+    "sequence": "G01C0D"
+  },
+  {
+    "itemNumber": "K833H",
+    "name": "2MM DALUE SPLIT",
+    "sequence": "H25510"
+  },
+  {
+    "itemNumber": "NON21420A",
+    "name": "SYRINGE LDR LOCK 3ML",
+    "sequence": "H105C0D"
+  },
+  {
+    "itemNumber": "AM0099",
+    "name": "SYRINGE LDR LOCK 5ML",
+    "sequence": "S11510"
+  },
+  {
+    "itemNumber": "NON20756WM",
+    "name": "SYRINGE LDR LOCK 10ML",
+    "sequence": "S43524"
+  },
+  {
+    "itemNumber": "NICU-10",
+    "name": "SHROUD BAG INFANT",
+    "sequence": "B430C0D"
+  },
+  {
+    "itemNumber": "NICU-10",
+    "name": "SHROUD BAG PEDIATRIC",
+    "sequence": "G32010"
+  },
+  {
+    "itemNumber": "VFD-10",
+    "name": "PACIFIER STANDARD",
+    "sequence": "E03C0D"
+  },
+  {
+    "itemNumber": "NM SINC",
+    "name": "SILVERION NEGATIVE PRESSURE",
+    "sequence": "H31010"
+  },
+  {
+    "itemNumber": "MSDCCV96EP",
+    "name": "OPTIMEW CLEANSING FOAM",
+    "sequence": "J23710"
+  },
+  {
+    "itemNumber": "4502",
+    "name": "SNSR DISP RD SET INFANT ADH",
+    "sequence": "A18510"
+  },
+  {
+    "itemNumber": "6299P",
+    "name": "ADHESIVE REMOVER SPRAY",
+    "sequence": "C14035"
+  },
+  {
+    "itemNumber": "6299P",
+    "name": "ADHESIVE REMOVER SPRAY",
+    "sequence": "C14035"
+  },
+  {
+    "itemNumber": "3230",
+    "name": "ALCOHOL PAD",
+    "sequence": "B61524"
+  },
+  {
+    "itemNumber": "2609",
+    "name": "ALCOHOL PAD",
+    "sequence": "C14035"
+  },
+  {
+    "itemNumber": "MDTBLREADY",
+    "name": "SOCKS BLUE PEDS",
+    "sequence": "A22610"
+  },
+  {
+    "itemNumber": "66801068",
+    "name": "ALLEVYNSNCR SMALL",
+    "sequence": "H22010"
+  },
+  {
+    "itemNumber": "66801307",
+    "name": "ALLEVYNSNCR SMALL",
+    "sequence": "H22010"
+  },
+  {
+    "itemNumber": "66801299",
+    "name": "ALLEVYNSNCR SMALL",
+    "sequence": "H23510"
+  },
+  {
+    "itemNumber": "66801300",
+    "name": "ALLEVYNSNCR SMALL",
+    "sequence": "E33510"
+  },
+  {
+    "itemNumber": "NON256565",
+    "name": "ANT REFLUX VALVE",
+    "sequence": "E33510"
+  },
+  {
+    "itemNumber": "MD5502000",
+    "name": "AQUACEL AG/M",
+    "sequence": "S02510"
+  },
+  {
+    "itemNumber": "72140110475",
+    "name": "AQUAPHOR LIP REPAIR",
+    "sequence": "B65510"
+  },
+  {
+    "itemNumber": "4004",
+    "name": "ARMBOARD MED",
+    "sequence": "C53510"
+  },
+  {
+    "itemNumber": "4004",
+    "name": "ARMBOARD MED",
+    "sequence": "C53510"
+  },
+  {
+    "itemNumber": "97929100",
+    "name": "ARMBOARD SOFT NEO",
+    "sequence": "C50510"
+  },
+  {
+    "itemNumber": "97929100",
+    "name": "ARMBOARD SOFT NEO",
+    "sequence": "C50510"
+  },
+  {
+    "itemNumber": "DYN042370-4",
+    "name": "ARTERIAL BLOOD SAMPLING KIT",
+    "sequence": "C23510"
+  },
+  {
+    "itemNumber": "DYN042370-4",
+    "name": "ARTERIAL BLOOD SAMPLING KIT",
+    "sequence": "C23510"
+  },
+  {
+    "itemNumber": "PK284",
+    "name": "ARTERIAL BLOOD SAMPLING KIT",
+    "sequence": "D25535"
+  },
+  {
+    "itemNumber": "DYNO02370-4",
+    "name": "ARTERIAL BLOOD SAMPLING KIT",
+    "sequence": "D25535"
+  },
+  {
+    "itemNumber": "DYNOPS30B1",
+    "name": "BAU ARTHCARE ZINC OXIDE",
+    "sequence": "C34535"
+  },
+  {
+    "itemNumber": "DYNO02370-4",
+    "name": "BAU ARTHCARE ZINC OXIDE",
+    "sequence": "H05010"
+  },
+  {
+    "itemNumber": "1997",
+    "name": "BAU ARTHCARE ZINC OXIDE",
+    "sequence": "H05010"
+  },
+  {
+    "itemNumber": "74300",
+    "name": "BAU ARTHCARE ZINC OXIDE",
+    "sequence": "C35510"
+  },
+  {
+    "itemNumber": "74300",
+    "name": "BAU ARTHCARE ZINC OXIDE",
+    "sequence": "C35510"
+  },
+  {
+    "itemNumber": "NON257635",
+    "name": "BAU ZINC OXIDE CREAM",
+    "sequence": "E26510"
+  },
+  {
+    "itemNumber": "7831",
+    "name": "BAU ZINC OXIDE CREAM",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "7831",
+    "name": "BAU ZINC OXIDE CREAM",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "NON207648",
+    "name": "BAG ISOLATION INFANT",
+    "sequence": "H45510"
+  },
+  {
+    "itemNumber": "79300",
+    "name": "BAND TENS REP MED ALLERGY",
+    "sequence": "H05010"
+  },
+  {
+    "itemNumber": "79300",
+    "name": "BAND TENS REP MED ALLERGY",
+    "sequence": "H05010"
+  },
+  {
+    "itemNumber": "5072-10-INT",
+    "name": "BAND RED ALLERGY",
+    "sequence": "A29510"
+  },
+  {
+    "itemNumber": "67V1T17",
+    "name": "BARRIER PROT 5X17 5CRM VALU",
+    "sequence": "E02C0D"
+  },
+  {
+    "itemNumber": "PC1500",
+    "name": "BATTERY AA",
+    "sequence": "S40210"
+  },
+  {
+    "itemNumber": "PC1500",
+    "name": "BATTERY AA",
+    "sequence": "S40210"
+  },
+
+  // --- Page 2 --- (File 2.jpeg / 1000006351.jpg)
+  {
+    "itemNumber": "DYNO-812",
+    "name": "BATTERY D",
+    "sequence": "F52510"
+  },
+  {
+    "itemNumber": "DYNO-812",
+    "name": "BATTERY D",
+    "sequence": "F52510"
+  },
+  {
+    "itemNumber": "16-1",
+    "name": "BEEF INKED BLUE",
+    "sequence": "F22510"
+  },
+  {
+    "itemNumber": "16-1",
+    "name": "BEEF INKED BLUE",
+    "sequence": "F22510"
+  },
+  {
+    "itemNumber": "DYND256627",
+    "name": "BEEF INKED BLUE",
+    "sequence": "H72510"
+  },
+  {
+    "itemNumber": "C1544",
+    "name": "BEEF INKED BLUE",
+    "sequence": "H72510"
+  },
+  {
+    "itemNumber": "14014",
+    "name": "BG CPAP NASAL MASK",
+    "sequence": "C710C0D"
+  },
+  {
+    "itemNumber": "14014",
+    "name": "BG CPAP NASAL MASK",
+    "sequence": "C710C0D"
+  },
+  {
+    "itemNumber": "T67",
+    "name": "CRITIC AID DRT SKIN MOIST 1ct",
+    "sequence": "B63010"
+  },
+  {
+    "itemNumber": "MODS912HP",
+    "name": "CUFF BP INF SET CHLD SGL TB",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "MODS912HP",
+    "name": "CUFF BP INF SET CHLD SGL TB",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "MODS912HP",
+    "name": "CUFF BP INF SET CHLD SGL TB",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "874",
+    "name": "WIPES",
+    "sequence": "A365C0D"
+  },
+  {
+    "itemNumber": "DYND10000",
+    "name": "WIPES",
+    "sequence": "H45510"
+  },
+  {
+    "itemNumber": "40030",
+    "name": "BLANKET FULL BODY WARMER",
+    "sequence": "H72510"
+  },
+  {
+    "itemNumber": "80610R10",
+    "name": "BLANKET HYPOTHERMIA GREEN",
+    "sequence": "G555C0D"
+  },
+  {
+    "itemNumber": "054007",
+    "name": "BLOOD ADMINISTRATION FILTER",
+    "sequence": "H30510"
+  },
+  {
+    "itemNumber": "63-44220",
+    "name": "BLOOD ADMINISTRATION FILTER",
+    "sequence": "C24524"
+  },
+  {
+    "itemNumber": "442022",
+    "name": "BLOOD CULTURE ANAEROBIC",
+    "sequence": "C24524"
+  },
+  {
+    "itemNumber": "63-44220",
+    "name": "BLOOD CULTURE ANAEROBIC",
+    "sequence": "C24524"
+  },
+  {
+    "itemNumber": "36488000",
+    "name": "BLOOD CULTURE ANAEROBIC",
+    "sequence": "G15010"
+  },
+  {
+    "itemNumber": "36488000",
+    "name": "BLOOD TRANSFER DEVICE",
+    "sequence": "G15010"
+  },
+  {
+    "itemNumber": "NC100",
+    "name": "BLUE CAP",
+    "sequence": "C325C0D"
+  },
+  {
+    "itemNumber": "DYN84124",
+    "name": "BLUE CAPS",
+    "sequence": "C325C0D"
+  },
+  {
+    "itemNumber": "1055",
+    "name": "BLUNT NEEDLE 18G X 1.5\"",
+    "sequence": "C07024"
+  },
+  {
+    "itemNumber": "1055",
+    "name": "BLUNT NEEDLE 18G X 1.5\"",
+    "sequence": "C07024"
+  },
+  {
+    "itemNumber": "4404",
+    "name": "BNDG CMPRS W/ADH CLD CLIP PR",
+    "sequence": "C22024"
+  },
+  {
+    "itemNumber": "4404",
+    "name": "BNDG CMPRS W/ADH CLD CLIP PR",
+    "sequence": "C22024"
+  },
+  {
+    "itemNumber": "1301",
+    "name": "BONE WAX",
+    "sequence": "A4420"
+  },
+  {
+    "itemNumber": "4404",
+    "name": "BNDG CMPRS W/ADH CLD CLIP PR",
+    "sequence": "A4420"
+  },
+  {
+    "itemNumber": "2261",
+    "name": "DISPOSABLE PENLIGHT",
+    "sequence": "A4420"
+  },
+  {
+    "itemNumber": "5C4469P",
+    "name": "DISPOSABLE PENLIGHT",
+    "sequence": "C46510"
+  },
+  {
+    "itemNumber": "DYNE1020",
+    "name": "BREAST MILK STORAGE SYSTEM",
+    "sequence": "H41510"
+  },
+  {
+    "itemNumber": "NON207412",
+    "name": "DRESSING KELFIX",
+    "sequence": "H71510"
+  },
+  {
+    "itemNumber": "DYND930113",
+    "name": "DRESSING KELFIX",
+    "sequence": "H53010"
+  },
+  {
+    "itemNumber": "CUR253180",
+    "name": "DRSG PETROLATUM 6X8IN",
+    "sequence": "H53010"
+  },
+  {
+    "itemNumber": "9.99806E+11",
+    "name": "DURAPREP APPLICATOR 6ML",
+    "sequence": "A670CD"
+  },
+  {
+    "itemNumber": "71-8004",
+    "name": "ECO CANISTER 2500CC",
+    "sequence": "G005C0D"
+  },
+  {
+    "itemNumber": "1620-003",
+    "name": "ECO TOP LEADS",
+    "sequence": "A19510"
+  },
+  {
+    "itemNumber": "DYND85967",
+    "name": "EMESIS BASIN ORTHO",
+    "sequence": "A31530"
+  },
+  {
+    "itemNumber": "TRN201",
+    "name": "EMESIS BASIN ORTHO",
+    "sequence": "A31530"
+  },
+  {
+    "itemNumber": "DYND8451",
+    "name": "EMESIS BASIN ORTHO",
+    "sequence": "F05010"
+  },
+  {
+    "itemNumber": "A40-143",
+    "name": "EXT SET MINI BORE 60\"",
+    "sequence": "A40-143"
+  },
+  {
+    "itemNumber": "DYND20710",
+    "name": "EXT SET PORT MANIFOLD 11.5\"",
+    "sequence": "E19510"
+  },
+  {
+    "itemNumber": "107180",
+    "name": "EXTRA CORP CKT",
+    "sequence": "C705C0D"
+  },
+  {
+    "itemNumber": "EIF-EXT-08D",
+    "name": "FEEDING TUBE EXT SET 16G",
+    "sequence": "E30544"
+  },
+  {
+    "itemNumber": "DYND44140",
+    "name": "FLEXI VALVE",
+    "sequence": "F30510"
+  },
+  {
+    "itemNumber": "40-432",
+    "name": "FILTER SCALPEL SM",
+    "sequence": "A16510"
+  },
+  {
+    "itemNumber": "107643US",
+    "name": "FILTER SCALPEL SM",
+    "sequence": "NAFA4DA"
+  },
+  {
+    "itemNumber": "SNAP-LOKPREFM",
+    "name": "FOLEY SECURMENT S-LOK 2-WAY",
+    "sequence": "A44510"
+  },
+  {
+    "itemNumber": "DYND62022",
+    "name": "FRACTURE BEDPAN",
+    "sequence": "C610C0D"
+  },
+  {
+    "itemNumber": "40875",
+    "name": "GLOVE SKIN SENSE PLF SZ 6.5",
+    "sequence": "G01C0D"
+  },
+  {
+    "itemNumber": "40875",
+    "name": "GLOVE SKIN SENSE PLF SZ 6.5",
+    "sequence": "G01C0D"
+  },
+  {
+    "itemNumber": "40875",
+    "name": "GLOVE SKIN SENSE PLF SZ 6.5",
+    "sequence": "G01C0D"
+  },
+  {
+    "itemNumber": "6013904",
+    "name": "GLOVE SKIN SENSE PLF SZ 6.5",
+    "sequence": "C31G10"
+  },
+  {
+    "itemNumber": "7128470",
+    "name": "GLOVE SKIN SENSE PLF SZ 6.5",
+    "sequence": "319472"
+  },
+
+  // --- Page 3 --- (File 3.jpeg / 1000006352.jpg)
+  {
+    "itemNumber": "360",
+    "name": "CONNECTOR SUCTION TUBING 3 IN 1",
+    "sequence": "F31010"
+  },
+  {
+    "itemNumber": "DYND80045",
+    "name": "CONNECTOR SUCTION TUBING 3 IN 1",
+    "sequence": "F31010"
+  },
+  {
+    "itemNumber": "G02256",
+    "name": "COVER ROLL",
+    "sequence": "G33010"
+  },
+  {
+    "itemNumber": "45547",
+    "name": "COVER ROLL",
+    "sequence": "G33010"
+  },
+  {
+    "itemNumber": "DYND605017",
+    "name": "CRITIC-AID DRY SKIN MOIST",
+    "sequence": "H72510"
+  },
+  {
+    "itemNumber": "C1544",
+    "name": "CRITIC-AID DRY SKIN MOIST",
+    "sequence": "H72510"
+  },
+  {
+    "itemNumber": "T67",
+    "name": "CRITIC-AID DRY SKIN MOIST 1ct",
+    "sequence": "B63010"
+  },
+  {
+    "itemNumber": "MODS912HP",
+    "name": "CUFF BP INF SET CHLD SGL TB",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "MODS912HP",
+    "name": "CUFF BP INF SET CHLD SGL TB",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "MODS912HP",
+    "name": "CUFF BP INF SET CHLD SGL TB",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "4502",
+    "name": "CVC TRAY 3F",
+    "sequence": "A18510"
+  },
+  {
+    "itemNumber": "G55827",
+    "name": "CVC TRAY 3F 8CM",
+    "sequence": "G555C0D"
+  },
+  {
+    "itemNumber": "G55827",
+    "name": "CVC TRAY 3F 8CM",
+    "sequence": "G555C0D"
+  },
+  {
+    "itemNumber": "8881450004",
+    "name": "CVC INSERTION PACK",
+    "sequence": "F23030"
+  },
+  {
+    "itemNumber": "DNA12",
+    "name": "CVC INSERTION PACK",
+    "sequence": "H51010"
+  },
+  {
+    "itemNumber": "04-9006-5",
+    "name": "DIALYSIS PRIMARY SET",
+    "sequence": "C64510"
+  },
+  {
+    "itemNumber": "62-10167-1",
+    "name": "DIALYZER POLYFLUX RELEACAR",
+    "sequence": "C710C0D"
+  },
+  {
+    "itemNumber": "114745",
+    "name": "DIALYZER POLYFLUX RELEACAR",
+    "sequence": "C630C0D"
+  },
+  {
+    "itemNumber": "32525",
+    "name": "DIALYZER POLYFLUX RELEACAR",
+    "sequence": "C64510"
+  },
+  {
+    "itemNumber": "74958",
+    "name": "DIALYZER POLYFLUX RELEACAR",
+    "sequence": "B43C0D"
+  },
+  {
+    "itemNumber": "9040",
+    "name": "DIALYZER INFANT SWADDLER SZ 4",
+    "sequence": "C41010"
+  },
+  {
+    "itemNumber": "9040",
+    "name": "DIALYZER INFANT SWADDLER SZ 4",
+    "sequence": "C41010"
+  },
+  {
+    "itemNumber": "9040",
+    "name": "DIALYZER INFANT SWADDLER SZ 4",
+    "sequence": "C41010"
+  },
+  {
+    "itemNumber": "9040",
+    "name": "DIALYZER INFANT SWADDLER SZ 4",
+    "sequence": "C41010"
+  },
+  {
+    "itemNumber": "9040",
+    "name": "DIALYZER INFANT SWADDLER SZ 4",
+    "sequence": "B310C0D"
+  },
+  {
+    "itemNumber": "4261",
+    "name": "DIAPER PRESLEE SM",
+    "sequence": "B44524"
+  },
+  {
+    "itemNumber": "5C4469P",
+    "name": "DISCONNECT CAP 90 POVIDONE IODINE",
+    "sequence": "C46510"
+  },
+  {
+    "itemNumber": "6666",
+    "name": "DISPOSABLE PENLIGHT",
+    "sequence": "A41010"
+  },
+  {
+    "itemNumber": "1020",
+    "name": "DRAPE 1020",
+    "sequence": "H41510"
+  },
+  {
+    "itemNumber": "DYND-1042",
+    "name": "DRESSING LIGHT",
+    "sequence": "C480C0D"
+  },
+  {
+    "itemNumber": "NON256565",
+    "name": "DRESSING KELFIX",
+    "sequence": "H71510"
+  },
+  {
+    "itemNumber": "NON207412",
+    "name": "DRESSING KELFIX",
+    "sequence": "H71510"
+  },
+  {
+    "itemNumber": "CUR253180",
+    "name": "DRSG PETROLATUM 6X8IN",
+    "sequence": "H53010"
+  },
+  {
+    "itemNumber": "9.99806E+11",
+    "name": "DURAPREP APPLICATOR 6ML",
+    "sequence": "A670CD"
+  },
+  {
+    "itemNumber": "71-8004",
+    "name": "ECO CANISTER 2500CC",
+    "sequence": "G005C0D"
+  },
+  {
+    "itemNumber": "1620-003",
+    "name": "ECO TOP LEADS",
+    "sequence": "A19510"
+  },
+  {
+    "itemNumber": "DYND85967",
+    "name": "EMESIS BASIN ORTHO",
+    "sequence": "A31530"
+  },
+  {
+    "itemNumber": "TRN201",
+    "name": "EMESIS BASIN ORTHO",
+    "sequence": "A31530"
+  },
+  {
+    "itemNumber": "DYND8451",
+    "name": "EMESIS BASIN ORTHO",
+    "sequence": "F05010"
+  },
+  {
+    "itemNumber": "EIF-ENT-08D",
+    "name": "FEEDING TUBE EXT SET 16G",
+    "sequence": "E30544"
+  },
+  {
+    "itemNumber": "EIF-ENT-08D",
+    "name": "FEEDING TUBE EXT SET 16G",
+    "sequence": "E30544"
+  },
+  {
+    "itemNumber": "40-432",
+    "name": "FILTER SCALPEL SM",
+    "sequence": "A16510"
+  },
+  {
+    "itemNumber": "107643US",
+    "name": "FILTER SCALPEL SM",
+    "sequence": "NAFA4DA"
+  },
+  {
+    "itemNumber": "SNAP-LOKPREFM",
+    "name": "FOLEY SECUREMENT S-LOK 2-WAY",
+    "sequence": "A44510"
+  },
+  {
+    "itemNumber": "DYND62022",
+    "name": "FRACTURE BEDPAN",
+    "sequence": "C610C0D"
+  },
+  {
+    "itemNumber": "40875",
+    "name": "GLOVE SKIN SENSE PLF SZ 6.5",
+    "sequence": "G01C0D"
+  },
+  {
+    "itemNumber": "40875",
+    "name": "GLOVE SKIN SENSE PLF SZ 6.5",
+    "sequence": "G01C0D"
+  },
+  {
+    "itemNumber": "40875",
+    "name": "GLOVE SKIN SENSE PLF SZ 6.5",
+    "sequence": "G01C0D"
+  },
+  {
+    "itemNumber": "6013904",
+    "name": "GLOVE SKIN SENSE PLF SZ 6.5",
+    "sequence": "C31G10"
+  },
+  {
+    "itemNumber": "7128470",
+    "name": "GLOVE SKIN SENSE PLF SZ 6.5",
+    "sequence": "319472"
+  },
+  {
+    "itemNumber": "888661019",
+    "name": "CONNECTOR SUCTION TUBING 3 IN 1",
+    "sequence": "F31010"
+  },
+
+  // --- Page 4 --- (File 4.jpeg / 1000006353.jpg)
+  {
+    "itemNumber": "DYND80419",
+    "name": "GRADUATE CUP",
+    "sequence": "E630C0D"
+  },
+  {
+    "itemNumber": "9218",
+    "name": "GREEN BULLETS",
+    "sequence": "F00510"
+  },
+  {
+    "itemNumber": "TIF-250",
+    "name": "G2-4-0 SILK PS-2",
+    "sequence": "F33510"
+  },
+  {
+    "itemNumber": "AK-11502-F",
+    "name": "GRIPLOCK SECUREMENT",
+    "sequence": "G310C0D"
+  },
+  {
+    "itemNumber": "2233M-901",
+    "name": "GRIPLOCK SECUREMENT",
+    "sequence": "G40724"
+  },
+  {
+    "itemNumber": "G01955",
+    "name": "GUIDE WIRE STRAIGHT PICCOCORE",
+    "sequence": "G31010"
+  },
+  {
+    "itemNumber": "H530",
+    "name": "GW STRAIGHT 150CM 0.038\"",
+    "sequence": "G31010"
+  },
+  {
+    "itemNumber": "MODS912HP",
+    "name": "CUFF BP INF SET CHLD SGL TB",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "XTP-11PMT",
+    "name": "HD CATH LUM 15F 15CM",
+    "sequence": "G44C0D"
+  },
+  {
+    "itemNumber": "DYND-10166",
+    "name": "HANDLE SAFETY SCALPEL",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "4412A",
+    "name": "HEAD CLIPPER DISP",
+    "sequence": "G45010"
+  },
+  {
+    "itemNumber": "9019P-VC-005",
+    "name": "SURGICLEAR 6CM X 26CM DRESSINGS",
+    "sequence": "B12610"
+  },
+  {
+    "itemNumber": "AK-11502-F",
+    "name": "HEMODIALYSIS KIT-LUMEN BFR",
+    "sequence": "G310C0D"
+  },
+  {
+    "itemNumber": "DYNO-10166",
+    "name": "HEAD COOLER DISP.",
+    "sequence": "E03C0D"
+  },
+  {
+    "itemNumber": "1T-0275",
+    "name": "HEMOSTAT",
+    "sequence": "E16010"
+  },
+  {
+    "itemNumber": "DYND-62022",
+    "name": "HOT BED TEMP PROBE",
+    "sequence": "C610C0D"
+  },
+  {
+    "itemNumber": "DYND-62022",
+    "name": "HOT BED TEMP PROBE",
+    "sequence": "C610C0D"
+  },
+  {
+    "itemNumber": "RHIF363U",
+    "name": "HUMIDIFIER KIT",
+    "sequence": "F53C0D"
+  },
+  {
+    "itemNumber": "NON21420A",
+    "name": "SYRINGE LDR LOCK 3ML",
+    "sequence": "H105C0D"
+  },
+  {
+    "itemNumber": "SYR100227",
+    "name": "SYRINGE LDR LOCK 10ML",
+    "sequence": "C59010"
+  },
+  {
+    "itemNumber": "NON20756WM",
+    "name": "SYRINGE LDR LOCK 10ML",
+    "sequence": "S43524"
+  },
+  {
+    "itemNumber": "4645",
+    "name": "ID BAND FOAM INFANT",
+    "sequence": "A81510"
+  },
+  {
+    "itemNumber": "9040",
+    "name": "ID BAND FOAM INFANT",
+    "sequence": "C41010"
+  },
+  {
+    "itemNumber": "1055",
+    "name": "INFANT AMBU BAGS",
+    "sequence": "A02C0D"
+  },
+  {
+    "itemNumber": "98004",
+    "name": "INFANT AMBU BAGS",
+    "sequence": "F545CD"
+  },
+  {
+    "itemNumber": "10942011",
+    "name": "INFUSION SET TUBING",
+    "sequence": "H23710"
+  },
+  {
+    "itemNumber": "7912",
+    "name": "INFUSION SET TUBING",
+    "sequence": "H42010"
+  },
+  {
+    "itemNumber": "7912",
+    "name": "INFUSION SET TUBING",
+    "sequence": "H42010"
+  },
+  {
+    "itemNumber": "71-0013",
+    "name": "Iodine Swabs",
+    "sequence": "C31G10"
+  },
+  {
+    "itemNumber": "MDTBLREADY",
+    "name": "SOCKS BLUE PEDS",
+    "sequence": "A22610"
+  },
+  {
+    "itemNumber": "4978",
+    "name": "IV CATH 18X1.16\"",
+    "sequence": "H14010"
+  },
+  {
+    "itemNumber": "4978",
+    "name": "IV CATH 18X1.16\"",
+    "sequence": "H14010"
+  },
+  {
+    "itemNumber": "4978",
+    "name": "IV CATH 18X1.16\"",
+    "sequence": "H14010"
+  },
+  {
+    "itemNumber": "381434",
+    "name": "IV CATH 18X1.16\"",
+    "sequence": "D05C0D"
+  },
+  {
+    "itemNumber": "381434",
+    "name": "IV CATH 18X1.16\"",
+    "sequence": "D05C0D"
+  },
+  {
+    "itemNumber": "381412",
+    "name": "IV CATH 18X1.16\"",
+    "sequence": "C05510"
+  },
+  {
+    "itemNumber": "425251-02",
+    "name": "IV CATH SAFETY 18X1.75\"",
+    "sequence": "C05510"
+  },
+  {
+    "itemNumber": "425251-02",
+    "name": "IV CATH SAFETY 18X1.75\"",
+    "sequence": "C05510"
+  },
+  {
+    "itemNumber": "425251-02",
+    "name": "IV CATH SAFETY 22X1\"",
+    "sequence": "D30510"
+  },
+  {
+    "itemNumber": "425251-02",
+    "name": "IV CATH SAFETY 22X1\"",
+    "sequence": "D30510"
+  },
+  {
+    "itemNumber": "81073Q",
+    "name": "IV D5 1/2 NS W/20 KCL 1000ML",
+    "sequence": "G520C0D"
+  },
+  {
+    "itemNumber": "07932-09",
+    "name": "IV D5 1/2 NS W/20 KCL 1000ML",
+    "sequence": "G33510"
+  },
+  {
+    "itemNumber": "ME1055",
+    "name": "IV D5 1/2 NS W/20 KCL 1000ML",
+    "sequence": "D31050"
+  },
+  {
+    "itemNumber": "ME1055",
+    "name": "IV D5 1/2 NS W/20 KCL 1000ML",
+    "sequence": "D31050"
+  },
+  {
+    "itemNumber": "10016073",
+    "name": "IV EXTENSION 38IN",
+    "sequence": "D420C0D"
+  },
+  {
+    "itemNumber": "07983-03",
+    "name": "IV SOL 0.9% NS 1000ML",
+    "sequence": "D415C0D"
+  },
+  {
+    "itemNumber": "07983-03",
+    "name": "IV SOL 0.9% NS 1000ML",
+    "sequence": "D415C0D"
+  },
+  {
+    "itemNumber": "07983-03",
+    "name": "IV SOL 0.9% NS 1000ML",
+    "sequence": "D415C0D"
+  },
+  {
+    "itemNumber": "40800",
+    "name": "IV SOL CITRATE 750ML",
+    "sequence": "C550C0D"
+  },
+  {
+    "itemNumber": "07926-09",
+    "name": "IV SOL D5 0.9% NS 1000ML",
+    "sequence": "G795C0D"
+  },
+  {
+    "itemNumber": "07926-09",
+    "name": "IV SOL D5 0.9% NS 1000ML",
+    "sequence": "G795C0D"
+  },
+  {
+    "itemNumber": "07926-09",
+    "name": "IV SOL D5 0.9% NS 1000ML",
+    "sequence": "G795C0D"
+  },
+  {
+    "itemNumber": "07935-09",
+    "name": "IV SOL LR 1000ML",
+    "sequence": "D655C0D"
+  },
+  {
+    "itemNumber": "07935-09",
+    "name": "IV SOL LR 1000ML",
+    "sequence": "D655C0D"
+  },
+  {
+    "itemNumber": "07935-09",
+    "name": "IV SOL LR 1000ML",
+    "sequence": "D655C0D"
+  },
+  {
+    "itemNumber": "07116-09",
+    "name": "IV SOL NS/20K 1000ML",
+    "sequence": "C10524"
+  },
+  {
+    "itemNumber": "DYND2479",
+    "name": "IV STARTER",
+    "sequence": "C745C0D"
+  },
+  {
+    "itemNumber": "7906",
+    "name": "IV STARTER",
+    "sequence": "F00510"
+  },
+  {
+    "itemNumber": "773656",
+    "name": "KANGAROO BAG",
+    "sequence": "E420C0D"
+  },
+  {
+    "itemNumber": "74023",
+    "name": "KANGAROO PUMP SET",
+    "sequence": "A015L2"
+  },
+
+  // --- Page 5 --- (File 5.jpeg / 1000006354.jpg)
+  {
+    "itemNumber": "TD1-PNB-SL",
+    "name": "LABEL PNB LABELS",
+    "sequence": "A690C0D"
+  },
+  {
+    "itemNumber": "59704483",
+    "name": "LABEL MONDAY ORANGE",
+    "sequence": "S5024"
+  },
+  {
+    "itemNumber": "59704483",
+    "name": "LABEL MONDAY ORANGE",
+    "sequence": "S5024"
+  },
+  {
+    "itemNumber": "59704483",
+    "name": "LABEL MONDAY ORANGE",
+    "sequence": "S5024"
+  },
+  {
+    "itemNumber": "59704483",
+    "name": "LABEL MONDAY ORANGE",
+    "sequence": "S5024"
+  },
+  {
+    "itemNumber": "59704483",
+    "name": "LABEL MONDAY ORANGE",
+    "sequence": "S5024"
+  },
+  {
+    "itemNumber": "59704483",
+    "name": "LABEL MONDAY ORANGE",
+    "sequence": "S5024"
+  },
+  {
+    "itemNumber": "59704483",
+    "name": "LABEL MONDAY ORANGE",
+    "sequence": "S5024"
+  },
+  {
+    "itemNumber": "59704483",
+    "name": "LABEL MONDAY ORANGE",
+    "sequence": "S5024"
+  },
+  {
+    "itemNumber": "GHN10X50",
+    "name": "LARGE SURGICAL DOWN LVL 3",
+    "sequence": "H48510"
+  },
+  {
+    "itemNumber": "DYNPZ2701",
+    "name": "LARGE SURGICAL DOWN LVL 3",
+    "sequence": "F51010"
+  },
+  {
+    "itemNumber": "MD5302373",
+    "name": "LUBRICATING JELLY",
+    "sequence": "A51710"
+  },
+  {
+    "itemNumber": "MD5302373",
+    "name": "LUBRICATING JELLY",
+    "sequence": "A51710"
+  },
+  {
+    "itemNumber": "3114S518",
+    "name": "MARKER W/ LABELS",
+    "sequence": "G36610"
+  },
+  {
+    "itemNumber": "DYND44140",
+    "name": "MASK AEROSOL ADULT",
+    "sequence": "F30510"
+  },
+  {
+    "itemNumber": "1084",
+    "name": "MASK AEROSOL ADULT",
+    "sequence": "F46510"
+  },
+  {
+    "itemNumber": "1084",
+    "name": "MASK AEROSOL ADULT",
+    "sequence": "F46510"
+  },
+  {
+    "itemNumber": "1085",
+    "name": "MASK AEROSOL PEDI",
+    "sequence": "F46510"
+  },
+  {
+    "itemNumber": "1085",
+    "name": "MASK AEROSOL PEDI",
+    "sequence": "F46510"
+  },
+  {
+    "itemNumber": "1055",
+    "name": "MASK O2 ADULT",
+    "sequence": "F405C0D"
+  },
+  {
+    "itemNumber": "1055",
+    "name": "MASK O2 ADULT",
+    "sequence": "F405C0D"
+  },
+  {
+    "itemNumber": "1055",
+    "name": "MASK O2 ADULT",
+    "sequence": "F405C0D"
+  },
+  {
+    "itemNumber": "1032",
+    "name": "MASK O2 ADULT",
+    "sequence": "F43524"
+  },
+  {
+    "itemNumber": "1045",
+    "name": "MASK O2 CHILD",
+    "sequence": "F42524"
+  },
+  {
+    "itemNumber": "1045",
+    "name": "MASK O2 CHILD",
+    "sequence": "F42524"
+  },
+  {
+    "itemNumber": "1012",
+    "name": "MASK O2 CHILD",
+    "sequence": "F43524"
+  },
+  {
+    "itemNumber": "1012",
+    "name": "MASK O2 NEO",
+    "sequence": "F43524"
+  },
+  {
+    "itemNumber": "04-95",
+    "name": "MASTISOL",
+    "sequence": "D38510"
+  },
+  {
+    "itemNumber": "04-95",
+    "name": "MASTISOL",
+    "sequence": "D38510"
+  },
+  {
+    "itemNumber": "DYND-1042",
+    "name": "MATERNITY RATE/LVL",
+    "sequence": "C480C0D"
+  },
+  {
+    "itemNumber": "NON247286",
+    "name": "MATERNITY RATE/LVL",
+    "sequence": "B705C0D"
+  },
+  {
+    "itemNumber": "70M2",
+    "name": "MATERNITY RATE/LVL",
+    "sequence": "E31510"
+  },
+  {
+    "itemNumber": "202421",
+    "name": "MATERNITY RATE/LVL",
+    "sequence": "S54535"
+  },
+  {
+    "itemNumber": "202421",
+    "name": "MATERNITY RATE/LVL",
+    "sequence": "S54535"
+  },
+  {
+    "itemNumber": "DYND565383",
+    "name": "MEDLINE CUP 100",
+    "sequence": "D25510"
+  },
+  {
+    "itemNumber": "DYN838",
+    "name": "MEDLINE CUP 100",
+    "sequence": "E02C0D"
+  },
+  {
+    "itemNumber": "MC33383",
+    "name": "MEDLINE CUP 100",
+    "sequence": "D230C0D"
+  },
+  {
+    "itemNumber": "68800138",
+    "name": "MEPILEX 8X25IN",
+    "sequence": "H53010"
+  },
+  {
+    "itemNumber": "284190",
+    "name": "MEPILEX 8X25IN",
+    "sequence": "H30510"
+  },
+  {
+    "itemNumber": "290790",
+    "name": "MEPILEX 8X25IN",
+    "sequence": "H44510"
+  },
+  {
+    "itemNumber": "290790",
+    "name": "MEPILEX 8X25IN",
+    "sequence": "H44510"
+  },
+  {
+    "itemNumber": "DYND274035",
+    "name": "METER URINE DRAIN BAG 400ML",
+    "sequence": "E165C0D"
+  },
+  {
+    "itemNumber": "1056-60",
+    "name": "MICRODUCER KIT 4.5F",
+    "sequence": "S51510"
+  },
+  {
+    "itemNumber": "40341",
+    "name": "MINI-CUFFS",
+    "sequence": "S51710"
+  },
+  {
+    "itemNumber": "40341",
+    "name": "MINI-CUFFS",
+    "sequence": "S51710"
+  },
+  {
+    "itemNumber": "1057-52",
+    "name": "HRI ADAPTER SYRINGE",
+    "sequence": "D11030"
+  },
+  {
+    "itemNumber": "1056-60",
+    "name": "HRI EXTENSION KIT",
+    "sequence": "S51510"
+  },
+  {
+    "itemNumber": "DYND44140",
+    "name": "MULTI ADAPTOR",
+    "sequence": "F30510"
+  },
+  {
+    "itemNumber": "MVA01",
+    "name": "MVAH ARTHCARE ZINC OXIDE",
+    "sequence": "A55510"
+  },
+  {
+    "itemNumber": "MD5302373",
+    "name": "NAIL POLISH REMOVER",
+    "sequence": "A51710"
+  },
+  {
+    "itemNumber": "MD590780",
+    "name": "NASAL ASPIRATOR NEO",
+    "sequence": "B66510"
+  },
+  {
+    "itemNumber": "N224",
+    "name": "NASAL ASPIRATOR NEO",
+    "sequence": "F21510"
+  },
+  {
+    "itemNumber": "1600-7-50",
+    "name": "NASAL ASPIRATOR NEO",
+    "sequence": "F49010"
+  },
+  {
+    "itemNumber": "1600-7-50",
+    "name": "NASAL ASPIRATOR NEO",
+    "sequence": "F49010"
+  },
+  {
+    "itemNumber": "1422",
+    "name": "NATURALYTE CONCENTRATE 122.5",
+    "sequence": "F65510"
+  },
+  {
+    "itemNumber": "08-1251-1",
+    "name": "NATURALYTE CONCENTRATE 122.5",
+    "sequence": "C725C0D"
+  },
+  {
+    "itemNumber": "08-1251-1",
+    "name": "NATURALYTE CONCENTRATE 122.5",
+    "sequence": "C725C0D"
+  },
+  {
+    "itemNumber": "08-1251-1",
+    "name": "NATURALYTE CONCENTRATE 122.5",
+    "sequence": "C725C0D"
+  },
+  {
+    "itemNumber": "08-1251-1",
+    "name": "NATURALYTE CONCENTRATE 122.5",
+    "sequence": "C725C0D"
+  },
+  {
+    "itemNumber": "DYND49397",
+    "name": "NEEDLE BLOOD COLLECTION 25GA SPY",
+    "sequence": "G36510"
+  },
+  {
+    "itemNumber": "305198",
+    "name": "NEEDLE HYPO 16GX1.5\"",
+    "sequence": "S14010"
+  },
+  {
+    "itemNumber": "305198",
+    "name": "NEEDLE HYPO 16GX1.5\"",
+    "sequence": "S14010"
+  },
+  {
+    "itemNumber": "305122",
+    "name": "NEEDLE HYPO 22GX1\"",
+    "sequence": "B18510"
+  },
+  {
+    "itemNumber": "G00280",
+    "name": "NEEDLE PERCUTANEOUS 21G",
+    "sequence": "G41510"
+  },
+
+  // --- Page 6 --- (File 6.jpeg / 1000006355.jpg)
+  {
+    "itemNumber": "N6D02",
+    "name": "NEGLEAD",
+    "sequence": "H505C0D"
+  },
+  {
+    "itemNumber": "N6D02",
+    "name": "NEGLEAD",
+    "sequence": "H505C0D"
+  },
+  {
+    "itemNumber": "9.99803E+11",
+    "name": "NEONATAL BP CUFF SINGLE SZ 3",
+    "sequence": "A17510"
+  },
+  {
+    "itemNumber": "9.99803E+11",
+    "name": "NEONATAL BP CUFF SINGLE SZ 3",
+    "sequence": "A17510"
+  },
+  {
+    "itemNumber": "40-9438",
+    "name": "NEONATAL BP CUFF SINGLE SZ 3",
+    "sequence": "E24010"
+  },
+  {
+    "itemNumber": "50625",
+    "name": "NIPPLE STANDARD FLOW",
+    "sequence": "E26510"
+  },
+  {
+    "itemNumber": "50625",
+    "name": "NIPPLE STANDARD FLOW",
+    "sequence": "E26510"
+  },
+  {
+    "itemNumber": "3345",
+    "name": "NO STING BARRIER FILM 3ML",
+    "sequence": "H33530"
+  },
+  {
+    "itemNumber": "3345",
+    "name": "NO STING BARRIER FILM 3ML",
+    "sequence": "H33530"
+  },
+  {
+    "itemNumber": "EP28-03208",
+    "name": "NONO BOY LG",
+    "sequence": "A33030"
+  },
+  {
+    "itemNumber": "EP28-03208",
+    "name": "NONO BOY LG",
+    "sequence": "A33030"
+  },
+  {
+    "itemNumber": "EP28-01018",
+    "name": "NONO BOY SM",
+    "sequence": "A31010"
+  },
+  {
+    "itemNumber": "EP28-01018",
+    "name": "NONO BOY SM",
+    "sequence": "A31010"
+  },
+  {
+    "itemNumber": "MSDCCV96EP",
+    "name": "NURSING BOTTLE 8OZ L2 25IN",
+    "sequence": "J23710"
+  },
+  {
+    "itemNumber": "134901",
+    "name": "NURSITE WATER 0OZ",
+    "sequence": "C21510"
+  },
+  {
+    "itemNumber": "930480",
+    "name": "ONE-STEP CHLORAPREP",
+    "sequence": "D12610"
+  },
+  {
+    "itemNumber": "930480",
+    "name": "ONE-STEP CHLORAPREP",
+    "sequence": "D12610"
+  },
+  {
+    "itemNumber": "56502JT",
+    "name": "OPTIVEW TRANSPARENT",
+    "sequence": "B725C0D"
+  },
+  {
+    "itemNumber": "56502JT",
+    "name": "ORAL SWAB",
+    "sequence": "B725C0D"
+  },
+  {
+    "itemNumber": "DYND565383",
+    "name": "ORAL SWAB",
+    "sequence": "D25510"
+  },
+  {
+    "itemNumber": "VPJIP130300",
+    "name": "PACIFIER STANDARD",
+    "sequence": "E03C0D"
+  },
+  {
+    "itemNumber": "NON20756WM",
+    "name": "PACKING GWLIND STRIP",
+    "sequence": "S43524"
+  },
+  {
+    "itemNumber": "NON256545",
+    "name": "PACKING GWLIND STRIP",
+    "sequence": "B30510"
+  },
+  {
+    "itemNumber": "PAPER TAPE 1IN",
+    "sequence": "G34010"
+  },
+  {
+    "itemNumber": "NON260001D",
+    "name": "PITCHER LINER",
+    "sequence": "D825CD"
+  },
+  {
+    "itemNumber": "P1119-6A",
+    "name": "PITCHER LINER",
+    "sequence": "E115C0D"
+  },
+  {
+    "itemNumber": "P1119-6A",
+    "name": "PILL SPLITTER",
+    "sequence": "G34010"
+  },
+  {
+    "itemNumber": "NON13500",
+    "name": "PILL SPLITTER",
+    "sequence": "A25710"
+  },
+  {
+    "itemNumber": "DYND85967",
+    "name": "POUCH PILL PEDIATRIC",
+    "sequence": "A31530"
+  },
+  {
+    "itemNumber": "PPHB-80",
+    "name": "PREP SOLUTION",
+    "sequence": "A38510"
+  },
+  {
+    "itemNumber": "PPHB-80",
+    "name": "PREP SOLUTION",
+    "sequence": "A38510"
+  },
+  {
+    "itemNumber": "MSCBS9944",
+    "name": "PREP SOLUTION",
+    "sequence": "G24510"
+  },
+  {
+    "itemNumber": "930400",
+    "name": "PREP PAD CHLORAPREP",
+    "sequence": "C19035"
+  },
+  {
+    "itemNumber": "930400",
+    "name": "PREP PAD CHLORAPREP",
+    "sequence": "C19035"
+  },
+  {
+    "itemNumber": "108641",
+    "name": "PROFESSIONAL",
+    "sequence": "NAFA4C6"
+  },
+  {
+    "itemNumber": "MC33383",
+    "name": "RADIAL ART CATH SET 2.5F",
+    "sequence": "D230C0D"
+  },
+  {
+    "itemNumber": "006-1371-80",
+    "name": "RED CAPS",
+    "sequence": "G34035"
+  },
+  {
+    "itemNumber": "9711",
+    "name": "RED LEAD",
+    "sequence": "D26510"
+  },
+  {
+    "itemNumber": "MED50025",
+    "name": "REPLOGLE SUCTION CATH 10F",
+    "sequence": "A70C0D"
+  },
+  {
+    "itemNumber": "DYL-ABT054",
+    "name": "REPLOGLE SUCTION CATH 8F",
+    "sequence": "E23510"
+  },
+  {
+    "itemNumber": "7531",
+    "name": "RESTRAINT",
+    "sequence": "A33030"
+  },
+  {
+    "itemNumber": "7531",
+    "name": "RESTRAINT",
+    "sequence": "A33030"
+  },
+  {
+    "itemNumber": "8886266122",
+    "name": "SALEM SUMP 18F",
+    "sequence": "E22510"
+  },
+  {
+    "itemNumber": "1340.06",
+    "name": "SALEM SUMP 18F",
+    "sequence": "E21010"
+  },
+  {
+    "itemNumber": "1340.06",
+    "name": "SALEM SUMP 18F",
+    "sequence": "E21010"
+  },
+  {
+    "itemNumber": "DYND2479",
+    "name": "SALINE FLUSH STZ 5.0",
+    "sequence": "C745C0D"
+  },
+  {
+    "itemNumber": "BTM-JMP-3",
+    "name": "SAMPS TR SET BLOOD TRANSFER",
+    "sequence": "G325C0D"
+  },
+  {
+    "itemNumber": "PB-255S",
+    "name": "SCALPEL SAFETY #11",
+    "sequence": "G25510"
+  },
+
+  // --- Page 7 --- (File 7.jpeg / 1000006356.jpg / 1000006357.jpg)
+  {
+    "itemNumber": "7022",
+    "name": "SCD KNEE LENGTH MED",
+    "sequence": "G04C0D"
+  },
+  {
+    "itemNumber": "PCB100X",
+    "name": "SCD KNEE LENGTH MED",
+    "sequence": "F18C0D"
+  },
+  {
+    "itemNumber": "112729-001",
+    "name": "SENSOR PULSE OXIMETER DIGIT",
+    "sequence": "A17510"
+  },
+  {
+    "itemNumber": "4478",
+    "name": "SENSOR PULSE OXIMETER NEONATAL",
+    "sequence": "A19530"
+  },
+  {
+    "itemNumber": "4478",
+    "name": "SENSOR PULSE OXIMETER NEONATAL",
+    "sequence": "A19530"
+  },
+  {
+    "itemNumber": "3403-0007",
+    "name": "SET EXTENSION SMALL BORE 60\"",
+    "sequence": "D220C0D"
+  },
+  {
+    "itemNumber": "12013866",
+    "name": "SET EXTENSION SYRINGE BGR 17",
+    "sequence": "A260C0D"
+  },
+  {
+    "itemNumber": "L-70",
+    "name": "SET INFUS L69IN 13HL HALF 3",
+    "sequence": "D30530"
+  },
+  {
+    "itemNumber": "L-70",
+    "name": "SET IV FLUID WARMER HOT LINE",
+    "sequence": "D30530"
+  },
+  {
+    "itemNumber": "MSBC50822",
+    "name": "SHAMPOO CAP",
+    "sequence": "B605C0D"
+  },
+  {
+    "itemNumber": "NICU-10",
+    "name": "SHROUD BAG INFANT",
+    "sequence": "B430C0D"
+  },
+  {
+    "itemNumber": "NON20756WM",
+    "name": "SHROUD BAG PEDIATRIC",
+    "sequence": "S43524"
+  },
+  {
+    "itemNumber": "WCD-10",
+    "name": "WCD-10",
+    "sequence": "H32010"
+  },
+  {
+    "itemNumber": "WCD-44",
+    "name": "WCD-44",
+    "sequence": "H31010"
+  },
+  {
+    "itemNumber": "12730-P001",
+    "name": "SILVERION NEGATIVE PRESSURE",
+    "sequence": "A11010"
+  },
+  {
+    "itemNumber": "MDTBLREADY",
+    "name": "SOCKS BLUE PEDS",
+    "sequence": "A22610"
+  },
+  {
+    "itemNumber": "DYNOPS30B1",
+    "name": "SOCKS BLUE PEDS",
+    "sequence": "C34535"
+  },
+  {
+    "itemNumber": "DYND-1042",
+    "name": "SOCKS BLUE PEDS",
+    "sequence": "C480C0D"
+  },
+  {
+    "itemNumber": "8100",
+    "name": "SOLUTION BOWL 18OZ",
+    "sequence": "G365C0D"
+  },
+  {
+    "itemNumber": "8100",
+    "name": "SOLUTION BOWL 18OZ",
+    "sequence": "G365C0D"
+  },
+  {
+    "itemNumber": "DYND366000",
+    "name": "SPECIMEN HAT 1200ML",
+    "sequence": "D03C0D"
+  },
+  {
+    "itemNumber": "G43991",
+    "name": "SPECTRUM CVC TRAY BLUM 4F 12CM",
+    "sequence": "G515C0D"
+  },
+  {
+    "itemNumber": "G43991",
+    "name": "SPECTRUM CVC TRAY BLUM 4F 12CM",
+    "sequence": "G515C0D"
+  },
+  {
+    "itemNumber": "G43991",
+    "name": "SPECTRUM CVC TRAY BLUM 4F 5CM",
+    "sequence": "G515C0D"
+  },
+  {
+    "itemNumber": "G44015",
+    "name": "SPECTRUM CVC TRAY BLUM 4F 5CM",
+    "sequence": "G530C0D"
+  },
+  {
+    "itemNumber": "G44015",
+    "name": "SPECTRUM CVC TRAY BLUM 4F 5CM",
+    "sequence": "G530C0D"
+  },
+  {
+    "itemNumber": "DYND366000",
+    "name": "SPECIMEN HAT 1200ML",
+    "sequence": "D03C0D"
+  },
+  {
+    "itemNumber": "9.99806E+11",
+    "name": "SQUSHON PILLOW",
+    "sequence": "A21024"
+  },
+  {
+    "itemNumber": "DYND366000",
+    "name": "SPECIMEN HAT 1200ML",
+    "sequence": "D03C0D"
+  },
+  {
+    "itemNumber": "VRIIPSP",
+    "name": "STATLOCK PIC PLUS PEDI",
+    "sequence": "H52010"
+  },
+  {
+    "itemNumber": "RI54T",
+    "name": "STATLOCK PIC PLUS PEDI",
+    "sequence": "H52010"
+  },
+  {
+    "itemNumber": "RI54T",
+    "name": "STERI-STRIP 0.5\"X4\"",
+    "sequence": "H52010"
+  },
+  {
+    "itemNumber": "32003",
+    "name": "STERILE SALINE 10ML",
+    "sequence": "D51024"
+  },
+  {
+    "itemNumber": "32003",
+    "name": "STERILE SALINE 10ML",
+    "sequence": "D51024"
+  },
+  {
+    "itemNumber": "R5000-01",
+    "name": "STERILE WATER 1000ML",
+    "sequence": "E64C0D"
+  },
+  {
+    "itemNumber": "KMPN4800A",
+    "name": "STETHOSCOPE",
+    "sequence": "A22054"
+  },
+  {
+    "itemNumber": "KMPN4800A",
+    "name": "STETHOSCOPE",
+    "sequence": "A22054"
+  },
+  {
+    "itemNumber": "MM3341L",
+    "name": "STETHOSCOPE",
+    "sequence": "G24510"
+  },
+  {
+    "itemNumber": "DYND80045",
+    "name": "STOPCOCK 4 WAY",
+    "sequence": "F31010"
+  },
+  {
+    "itemNumber": "ENF-STRAW",
+    "name": "STRAW MILK",
+    "sequence": "C32055"
+  },
+  {
+    "itemNumber": "DYND80045",
+    "name": "STOPCOCK 4 WAY",
+    "sequence": "F31010"
+  },
+  {
+    "itemNumber": "750",
+    "name": "STYLET ET SLICK 6F",
+    "sequence": "F610C0D"
+  },
+  {
+    "itemNumber": "750",
+    "name": "STYLET ET SLICK 6F",
+    "sequence": "F610C0D"
+  },
+  {
+    "itemNumber": "500",
+    "name": "STYLET ET SLICK 6F",
+    "sequence": "F005C0D"
+  },
+  {
+    "itemNumber": "1400",
+    "name": "STYLET ET SLICK 6F",
+    "sequence": "F005C0D"
+  },
+  {
+    "itemNumber": "DYND40982",
+    "name": "SUCTION CANISTER 1.2L",
+    "sequence": "F05510"
+  },
+  {
+    "itemNumber": "2160",
+    "name": "SUCTION CATH KIT 10F",
+    "sequence": "F35530"
+  },
+  {
+    "itemNumber": "2160",
+    "name": "SUCTION CATH KIT 10F",
+    "sequence": "F35530"
+  },
+  {
+    "itemNumber": "DYND40982",
+    "name": "SUCTION CATH KIT 8F",
+    "sequence": "F05510"
+  },
+  {
+    "itemNumber": "DYND40988",
+    "name": "SUCTION CATH KIT 8F",
+    "sequence": "F25510"
+  },
+  {
+    "itemNumber": "DYND40988",
+    "name": "SUCTION CATH KIT 8F",
+    "sequence": "F25510"
+  },
+  {
+    "itemNumber": "2160",
+    "name": "SUCTION CATH W/SLEEVE 8F",
+    "sequence": "F35530"
+  },
+  {
+    "itemNumber": "2160",
+    "name": "SUCTION CATH W/SLEEVE 8F",
+    "sequence": "F35530"
+  },
+  {
+    "itemNumber": "2160",
+    "name": "SUCTION KIT CLOSED 10F",
+    "sequence": "F35530"
+  },
+  {
+    "itemNumber": "2210",
+    "name": "SUCTION KIT CLOSED 14F",
+    "sequence": "F35530"
+  },
+
+  // --- Page 8 --- (File 8.jpeg / 1000006357.jpg)
+  {
+    "itemNumber": "196",
+    "name": "SUCTION CATH W/SLEEVE 8F",
+    "sequence": "H43C0D"
+  },
+  {
+    "itemNumber": "8888301713",
+    "name": "SUCTION CATH W/SLEEVE 8F",
+    "sequence": "F115C0D"
+  },
+  {
+    "itemNumber": "H554",
+    "name": "SUCTION CATH W/SLEEVE 8F",
+    "sequence": "F115C0D"
+  },
+  {
+    "itemNumber": "18470",
+    "name": "SUCTION CATH W/SLEEVE 8F",
+    "sequence": "A15510"
+  },
+  {
+    "itemNumber": "19538",
+    "name": "SUCTION CATH W/SLEEVE 8F",
+    "sequence": "G37510"
+  },
+  {
+    "itemNumber": "9019P-VC-005",
+    "name": "SURGICLEAR 10CM X 12CM DRESSINGS",
+    "sequence": "B12610"
+  },
+  {
+    "itemNumber": "TWBD1023",
+    "name": "SURGICLEAR 10CM X 12CM DRESSINGS",
+    "sequence": "H4470S"
+  },
+  {
+    "itemNumber": "9019P-VC-005",
+    "name": "SURGICLEAR 6CM X 26CM DRESSINGS",
+    "sequence": "B12610"
+  },
+  {
+    "itemNumber": "TWBD1019",
+    "name": "SURGICLEAR 6CM X 26CM DRESSINGS",
+    "sequence": "H4470S"
+  },
+  {
+    "itemNumber": "9019P-VC-005",
+    "name": "SURGICLEAR 6CM X 26CM DRESSINGS",
+    "sequence": "B12610"
+  },
+  {
+    "itemNumber": "6511",
+    "name": "SWAB SUCTION",
+    "sequence": "B720C0D"
+  },
+  {
+    "itemNumber": "PCA-TNCL",
+    "name": "SYRINGE ORAL DIPHENHYD",
+    "sequence": "28010"
+  },
+  {
+    "itemNumber": "302965",
+    "name": "SYRINGE ORAL DIPHENHYD",
+    "sequence": "C805C0D"
+  },
+  {
+    "itemNumber": "303277",
+    "name": "SYRINGE ORAL DIPHENHYD",
+    "sequence": "D505C0D"
+  },
+  {
+    "itemNumber": "309370",
+    "name": "SYRINGE LUER LOCK 10ML",
+    "sequence": "G05510"
+  },
+  {
+    "itemNumber": "309370",
+    "name": "SYRINGE LUER LOCK 10ML",
+    "sequence": "G05510"
+  },
+  {
+    "itemNumber": "309840",
+    "name": "SYRINGE LUER LOCK 20ML",
+    "sequence": "C23524"
+  },
+  {
+    "itemNumber": "303310",
+    "name": "SYRINGE LUER LOCK 20ML",
+    "sequence": "C810C0D"
+  },
+  {
+    "itemNumber": "303310",
+    "name": "SYRINGE LUER LOCK 20ML",
+    "sequence": "C810C0D"
+  },
+  {
+    "itemNumber": "305953",
+    "name": "SYRINGE LUER LOCK 3ML",
+    "sequence": "C85C0D"
+  },
+  {
+    "itemNumber": "309543",
+    "name": "SYRINGE LUER LOCK 3ML",
+    "sequence": "C85C0D"
+  },
+  {
+    "itemNumber": "309653",
+    "name": "SYRINGE ORAL 35ML",
+    "sequence": "C815C0D"
+  },
+  {
+    "itemNumber": "NM-S30NC",
+    "name": "SYRINGE ORAL 35ML",
+    "sequence": "E33035"
+  },
+  {
+    "itemNumber": "NM-S50NC",
+    "name": "SYRINGE ORAL 50ML",
+    "sequence": "E41735"
+  },
+  {
+    "itemNumber": "NM-S60NC",
+    "name": "SYRINGE ORAL 60ML",
+    "sequence": "E41735"
+  },
+  {
+    "itemNumber": "NM SINC",
+    "name": "SILVERION NEGATIVE PRESSURE",
+    "sequence": "H31010"
+  },
+  {
+    "itemNumber": "NM SINC",
+    "name": "SILVERION NEGATIVE PRESSURE",
+    "sequence": "H31010"
+  },
+  {
+    "itemNumber": "1983",
+    "name": "TAPE MEASURE 1/2\"",
+    "sequence": "H64C0D"
+  },
+  {
+    "itemNumber": "NON105333",
+    "name": "TAPE ADHESIVE WHT 12X9M 1.5\"",
+    "sequence": "H33510"
+  },
+  {
+    "itemNumber": "NON105333",
+    "name": "TAPE ADHESIVE WHT 12X9M 1.5\"",
+    "sequence": "H33510"
+  },
+  {
+    "itemNumber": "1683",
+    "name": "TAPE PINK 1/2\"",
+    "sequence": "H13510"
+  },
+  {
+    "itemNumber": "1683",
+    "name": "TAPE PINK 1/2\"",
+    "sequence": "H13510"
+  },
+  {
+    "itemNumber": "1622W",
+    "name": "TAPE SEAL CLEAR 3M",
+    "sequence": "H11010"
+  },
+  {
+    "itemNumber": "1622W",
+    "name": "TEGADERM WIPE",
+    "sequence": "H11010"
+  },
+  {
+    "itemNumber": "1622W",
+    "name": "TEGADERM 1.75\"X1.75\"",
+    "sequence": "H11010"
+  },
+  {
+    "itemNumber": "DYND4070F",
+    "name": "TEGADERM 1.75\"X1.75\"",
+    "sequence": "F27110"
+  },
+  {
+    "itemNumber": "DYND4070F",
+    "name": "TEGADERM CHG 2.75\"X3.5\"",
+    "sequence": "F27110"
+  },
+  {
+    "itemNumber": "DYND4070F",
+    "name": "TEGADERM CHG 2.75\"X3.5\"",
+    "sequence": "F27110"
+  },
+  {
+    "itemNumber": "DYND4070F",
+    "name": "TEGADERM CHG 2.75\"X3.5\"",
+    "sequence": "F27110"
+  },
+  {
+    "itemNumber": "D1000",
+    "name": "TENS CONNECTOR",
+    "sequence": "G65010"
+  },
+  {
+    "itemNumber": "D1000",
+    "name": "TENS CONNECTOR",
+    "sequence": "G65010"
+  },
+  {
+    "itemNumber": "DHP-DAD-20-NO",
+    "name": "TEMP ESOPH CABLE",
+    "sequence": "S33510"
+  },
+  {
+    "itemNumber": "HX-BBSF",
+    "name": "TEMP ESOPH CABLE",
+    "sequence": "B515C0D"
+  },
+  {
+    "itemNumber": "MD590780",
+    "name": "THERAPIA WRAP",
+    "sequence": "B66510"
+  },
+  {
+    "itemNumber": "MD590780",
+    "name": "THERAPIA WRAP",
+    "sequence": "B66510"
+  },
+  {
+    "itemNumber": "MD590780",
+    "name": "THERMOMETER DIGITAL",
+    "sequence": "B66510"
+  },
+  {
+    "itemNumber": "NON-20038",
+    "name": "THERMOMETER DIGITAL",
+    "sequence": "G1950D"
+  },
+  {
+    "itemNumber": "7520",
+    "name": "THERMOMETER DIGITAL",
+    "sequence": "A62524"
+  },
+  {
+    "itemNumber": "MSDCCV96EP",
+    "name": "TIE RED TAMPER PROOF",
+    "sequence": "J23710"
+  },
+  {
+    "itemNumber": "DYND40988",
+    "name": "TONGUE DEPRESSOR",
+    "sequence": "F25510"
+  },
+  {
+    "itemNumber": "NON11306",
+    "name": "TOOTHBRUSH CHILD",
+    "sequence": "B64510"
+  },
+  {
+    "itemNumber": "DYND26302",
+    "name": "TRAY LR/LL DRAW",
+    "sequence": "G240C0D"
+  },
+  {
+    "itemNumber": "DYNDH241A",
+    "name": "TRAY LR/LL DRAW",
+    "sequence": "G245C0D"
+  },
+  {
+    "itemNumber": "8886561019",
+    "name": "TROCAR CATH 10F",
+    "sequence": "G35030"
+  },
+  {
+    "itemNumber": "8886561035",
+    "name": "TROCAR CATH 16F",
+    "sequence": "G36010"
+  },
+  {
+    "itemNumber": "S-10107",
+    "name": "TUBE ET CUFFED 3.5",
+    "sequence": "F55010"
+  },
+  {
+    "itemNumber": "S-10107",
+    "name": "TUBE ET CUFFED 4.0",
+    "sequence": "F55010"
+  },
+  {
+    "itemNumber": "S-10107",
+    "name": "TUBE ET CUFFED 4.0",
+    "sequence": "F55010"
+  },
+  {
+    "itemNumber": "S-10111",
+    "name": "TUBE ET CUFFED 5.0",
+    "sequence": "F57010"
+  },
+
+  // --- Page 9 --- (File 9.jpeg / 1000006358.jpg)
+  {
+    "itemNumber": "86449",
+    "name": "TUBE ET CUFFED 6.0",
+    "sequence": "F58010"
+  },
+  {
+    "itemNumber": "86449",
+    "name": "TUBE ET CUFFED 6.0",
+    "sequence": "F58010"
+  },
+  {
+    "itemNumber": "86233",
+    "name": "TUBE ET CUFFED 7.5",
+    "sequence": "F50510"
+  },
+  {
+    "itemNumber": "S-10405",
+    "name": "TUBE ET UNCUFFED 3.0",
+    "sequence": "F51010"
+  },
+  {
+    "itemNumber": "S-10407",
+    "name": "TUBE ET UNCUFFED 3.5",
+    "sequence": "F51010"
+  },
+  {
+    "itemNumber": "S-10408",
+    "name": "TUBE ET UNCUFFED 4.0",
+    "sequence": "F51010"
+  },
+  {
+    "itemNumber": "S-10409",
+    "name": "TUBE ET UNCUFFED 4.5",
+    "sequence": "F54010"
+  },
+  {
+    "itemNumber": "S-10410",
+    "name": "TUBE ET UNCUFFED 5.0",
+    "sequence": "F54010"
+  },
+  {
+    "itemNumber": "ENFPL4250LD",
+    "name": "TUBE ET UNCUFFED 5.0",
+    "sequence": "B21010"
+  },
+  {
+    "itemNumber": "ENFPL4250LD",
+    "name": "TUBE FEED 42IN IFR ENTRAL",
+    "sequence": "B21010"
+  },
+  {
+    "itemNumber": "DYN044140",
+    "name": "TUBE FEED 42IN IFR ENTRAL",
+    "sequence": "F30510"
+  },
+  {
+    "itemNumber": "363083",
+    "name": "TUBE VACUTAINER BL BLUE 2.7ML",
+    "sequence": "C21510"
+  },
+  {
+    "itemNumber": "367986",
+    "name": "TUBE VACUTAINER CLR BLUE 2.7ML",
+    "sequence": "C23024"
+  },
+  {
+    "itemNumber": "367986",
+    "name": "TUBE VACUTAINER GRN 4ML",
+    "sequence": "C23024"
+  },
+  {
+    "itemNumber": "367986",
+    "name": "TUBE VACUTAINER GRN 4ML",
+    "sequence": "C23024"
+  },
+  {
+    "itemNumber": "367986",
+    "name": "TUBE VACUTAINER GRN 4ML",
+    "sequence": "C23024"
+  },
+  {
+    "itemNumber": "367963",
+    "name": "TUBE VACUTAINER LAV 6ML",
+    "sequence": "S11010"
+  },
+  {
+    "itemNumber": "367960",
+    "name": "TUBE VACUTAINER MINT 3ML",
+    "sequence": "C22024"
+  },
+  {
+    "itemNumber": "367960",
+    "name": "TUBE VACUTAINER MINT 3ML",
+    "sequence": "C22024"
+  },
+  {
+    "itemNumber": "364606",
+    "name": "TUBE VACUTAINER YELLOW 8.5ML",
+    "sequence": "C24010"
+  },
+  {
+    "itemNumber": "21-500-24",
+    "name": "TUBING EXT W/FILTER",
+    "sequence": "D13030"
+  },
+  {
+    "itemNumber": "10011865",
+    "name": "TUBING EXT W/FILTER",
+    "sequence": "D13030"
+  },
+  {
+    "itemNumber": "DYND40982",
+    "name": "TUBING EXT W/FILTER",
+    "sequence": "F05510"
+  },
+  {
+    "itemNumber": "NONSTNDNET03",
+    "name": "TUBULAR NET BANDAGE SZ 3",
+    "sequence": "H820C0D"
+  },
+  {
+    "itemNumber": "NONSTNDNET03",
+    "name": "TUBULAR NET BANDAGE SZ 3",
+    "sequence": "H820C0D"
+  },
+  {
+    "itemNumber": "NONSTNDNET08",
+    "name": "TUBULAR NET BANDAGE SZ 8",
+    "sequence": "H830C0D"
+  },
+  {
+    "itemNumber": "61-01",
+    "name": "ULTRASOUND GEL STERILE",
+    "sequence": "G49010"
+  },
+  {
+    "itemNumber": "MBP20303",
+    "name": "ULTRASORB 10X16",
+    "sequence": "B01C0D"
+  },
+  {
+    "itemNumber": "ULTRASORB1016",
+    "name": "ULTRASORB 10X16",
+    "sequence": "B015L4"
+  },
+  {
+    "itemNumber": "DYND082355",
+    "name": "UNDERPAD 10\" X 16\"",
+    "sequence": "D015C0D"
+  },
+  {
+    "itemNumber": "VMP400",
+    "name": "VAMP NEEDLESS CANNULA",
+    "sequence": "D15030"
+  },
+  {
+    "itemNumber": "VMP400",
+    "name": "VAMP NEEDLESS CANNULA",
+    "sequence": "D15030"
+  },
+  {
+    "itemNumber": "46-405",
+    "name": "VASCULAR ACCESS DRESSING",
+    "sequence": "S02010"
+  },
+  {
+    "itemNumber": "46-405",
+    "name": "VASCULAR ACCESS DRESSING",
+    "sequence": "S02010"
+  },
+  {
+    "itemNumber": "1006PCK060",
+    "name": "WAFFLE BED",
+    "sequence": "A725C0D"
+  },
+  {
+    "itemNumber": "214P06",
+    "name": "WAFFLE CUSHION",
+    "sequence": "A715C0D"
+  },
+  {
+    "itemNumber": "214P06",
+    "name": "WAFFLE CUSHION",
+    "sequence": "A715C0D"
+  },
+  {
+    "itemNumber": "80G-062-022",
+    "name": "WARNING PAD",
+    "sequence": "S42024"
+  },
+  {
+    "itemNumber": "80G-062-022",
+    "name": "WARNING PAD",
+    "sequence": "S42024"
+  },
+  {
+    "itemNumber": "MB2750610/S",
+    "name": "WOUND VAC CANISTER",
+    "sequence": "S810C0D"
+  },
+  {
+    "itemNumber": "DYND931302",
+    "name": "WOUND VAC CANISTER",
+    "sequence": "343192"
+  },
+  {
+    "itemNumber": "DYND9050130",
+    "name": "YANKAUER NON-VENTED",
+    "sequence": "F25535"
+  },
+  {
+    "itemNumber": "40-1007",
+    "name": "Y-EXT SET EXTERNAL",
+    "sequence": "E27510"
+  }
+]
 
 ];
 
